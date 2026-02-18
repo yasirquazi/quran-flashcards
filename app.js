@@ -47,10 +47,9 @@ const prevBtn = document.getElementById('prev-btn');
 const nextBtn = document.getElementById('next-btn');
 const playAudioBtn = document.getElementById('play-audio');
 
-// Mode toggle elements
-const modeSwitch = document.getElementById('mode-switch');
-const flashcardLabel = document.getElementById('flashcard-label');
-const mcqLabel = document.getElementById('mcq-label');
+// Mode tab elements
+const tabFlashcard = document.getElementById('tab-flashcard');
+const tabMcq = document.getElementById('tab-mcq');
 const mcqAnswers = document.getElementById('mcq-answers');
 
 // ============================================
@@ -67,8 +66,6 @@ async function loadSurahData() {
   surahData = data.surahs[0];
   
   totalAyahsSpan.textContent = surahData.ayahs.length;
-  flashcardLabel.classList.add('active');  // Start in flashcard mode
-  
   displayCurrentContent();
 }
 
@@ -171,6 +168,7 @@ function checkAnswer(selected, correct, buttonElement) {
     buttonElement.classList.add('correct');
     mcqFeedback.textContent = '✓ Correct!';
     mcqFeedback.classList.add('correct');
+    playSuccessSound();
     
     // Auto-advance after 1 second
     setTimeout(() => {
@@ -312,26 +310,53 @@ function flipCard() {
   When switching to MCQ: start at first word of current ayah.
   When switching to flashcard: stay on current ayah.
 */
-function switchMode() {
-  isMcqMode = modeSwitch.checked;
-  
-  // Update label styling
-  flashcardLabel.classList.toggle('active', !isMcqMode);
-  mcqLabel.classList.toggle('active', isMcqMode);
-  
+function switchMode(newIsMcq) {
+  isMcqMode = newIsMcq;
+
+  // Update tab active state
+  tabFlashcard.classList.toggle('active', !isMcqMode);
+  tabMcq.classList.toggle('active', isMcqMode);
+
   // Show/hide appropriate views
-  // classList.toggle(class, condition) adds class if condition is true
   flashcardView.classList.toggle('hidden', isMcqMode);
   mcqView.classList.toggle('hidden', !isMcqMode);
   mcqAnswers.classList.toggle('hidden', !isMcqMode);
-  playAudioBtn.classList.toggle('hidden', isMcqMode); // Hidden in MCQ mode, kept for future use
-  
+  playAudioBtn.classList.toggle('hidden', isMcqMode);
+
   // Reset word index when entering MCQ mode
   if (isMcqMode) {
     currentWordIndex = 0;
   }
-  
-  displayCurrentContent(false); // Don't autoplay when toggling modes
+
+  displayCurrentContent(false); // Don't autoplay when switching modes
+}
+
+/*
+  SUCCESS SOUND
+  Uses the Web Audio API to generate a short ascending chime.
+  No external files needed — the browser synthesizes it.
+*/
+function playSuccessSound() {
+  const ctx = new (window.AudioContext || window.webkitAudioContext)();
+  const notes = [523.25, 659.25, 783.99]; // C5, E5, G5
+
+  notes.forEach((freq, i) => {
+    const osc = ctx.createOscillator();
+    const gain = ctx.createGain();
+    osc.connect(gain);
+    gain.connect(ctx.destination);
+
+    osc.type = 'sine';
+    osc.frequency.value = freq;
+
+    const start = ctx.currentTime + i * 0.13;
+    gain.gain.setValueAtTime(0, start);
+    gain.gain.linearRampToValueAtTime(0.25, start + 0.04);
+    gain.gain.exponentialRampToValueAtTime(0.001, start + 0.28);
+
+    osc.start(start);
+    osc.stop(start + 0.3);
+  });
 }
 
 // ============================================
@@ -351,8 +376,9 @@ nextBtn.addEventListener('click', goNext);
 prevBtn.addEventListener('click', goPrev);
 playAudioBtn.addEventListener('click', playRecitation);
 
-// Mode toggle switch
-modeSwitch.addEventListener('change', switchMode);
+// Mode tab buttons
+tabFlashcard.addEventListener('click', () => switchMode(false));
+tabMcq.addEventListener('click', () => switchMode(true));
 
 // Keyboard navigation (arrow keys)
 document.addEventListener('keydown', function(event) {

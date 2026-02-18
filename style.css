@@ -63,69 +63,42 @@ header h1 {
 }
 
 /* ============================================
-   MODE TOGGLE
+   MODE TABS
 ============================================ */
 
-.mode-toggle {
+.mode-tabs {
   display: flex;
-  align-items: center;
-  gap: 12px;
-  margin: 20px 0 12px;
+  background: #e5e5e5;
+  border-radius: 100px;
+  padding: 4px;
+  gap: 4px;
+  margin: 20px 0 16px;
 }
 
-.mode-label {
-  font-size: 0.85rem;
-  font-weight: 800;
+.tab-btn {
+  padding: 10px 24px;
+  border-radius: 100px;
+  border: none;
+  background: transparent;
   color: #afafaf;
-  text-transform: uppercase;
-  letter-spacing: 0.6px;
-  transition: color 0.2s;
-}
-
-.mode-label.active {
-  color: #3c3c3c;
-}
-
-.switch {
-  position: relative;
-  width: 52px;
-  height: 28px;
-}
-
-.switch input {
-  opacity: 0;
-  width: 0;
-  height: 0;
-}
-
-.slider {
-  position: absolute;
+  font-size: 0.9rem;
+  font-weight: 800;
+  text-transform: none;
+  letter-spacing: 0;
+  box-shadow: none;
   cursor: pointer;
-  top: 0; left: 0; right: 0; bottom: 0;
-  background-color: #e5e5e5;
-  transition: 0.3s;
-  border-radius: 28px;
+  transition: all 0.2s;
 }
 
-.slider::before {
-  position: absolute;
-  content: "";
-  height: 22px;
-  width: 22px;
-  left: 3px;
-  bottom: 3px;
-  background-color: white;
-  transition: 0.3s;
-  border-radius: 50%;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+.tab-btn:active:not(:disabled) {
+  transform: none;
+  box-shadow: none !important;
 }
 
-input:checked + .slider {
-  background-color: #58cc02;
-}
-
-input:checked + .slider::before {
-  transform: translateX(24px);
+.tab-btn.active {
+  background: #ffffff;
+  color: #3c3c3c;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.12);
 }
 
 /* ============================================

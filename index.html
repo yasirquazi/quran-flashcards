@@ -38,13 +38,9 @@
       A toggle switch lets users pick between two options.
       We use a hidden checkbox + styled label for a nice UI.
     -->
-    <div class="mode-toggle">
-      <span class="mode-label" id="flashcard-label">Flashcard</span>
-      <label class="switch">
-        <input type="checkbox" id="mode-switch">
-        <span class="slider"></span>
-      </label>
-      <span class="mode-label" id="mcq-label">MCQ</span>
+    <div class="mode-tabs">
+      <button class="tab-btn active" id="tab-flashcard">Flashcard</button>
+      <button class="tab-btn" id="tab-mcq">MCQ</button>
     </div>
 
     <!-- Progress indicator -->
