@@ -19,6 +19,7 @@ let currentWordIndex = 0;   // Which word within the ayah (for MCQ mode)
 let surahData = null;       // Will hold our loaded data
 let audio = null;           // Will hold the audio player
 let isMcqMode = false;      // Track which mode we're in
+let mcqAnswered = false;    // Whether the current MCQ word has been answered
 
 // ============================================
 // DOM ELEMENTS - getting references to HTML
@@ -111,6 +112,9 @@ function displayMcqWord() {
   const ayah = surahData.ayahs[currentAyahIndex];
   const word = ayah.words[currentWordIndex];
   
+  // Reset answered state for new word
+  mcqAnswered = false;
+
   // Display the word
   mcqArabic.textContent = word.arabic;
   mcqTransliteration.textContent = word.transliteration;
@@ -160,25 +164,35 @@ function shuffleArray(array) {
   Compares their choice to the correct answer.
 */
 function checkAnswer(selected, correct, buttonElement) {
-  // Disable all buttons after answer is selected
+  // Disable all option buttons after answer is selected
   const allButtons = mcqOptions.querySelectorAll('.mcq-option');
   allButtons.forEach(btn => btn.disabled = true);
-  
+
+  // Mark as answered and unlock Next button
+  mcqAnswered = true;
+  updateButtons();
+
+  const totalWords = surahData.ayahs[currentAyahIndex].words.length;
+  const isLastWord = currentAyahIndex === surahData.ayahs.length - 1 &&
+                     currentWordIndex === totalWords - 1;
+
   if (selected === correct) {
     buttonElement.classList.add('correct');
     mcqFeedback.textContent = '✓ Correct!';
     mcqFeedback.classList.add('correct');
     playSuccessSound();
-    
-    // Auto-advance after 1 second
-    setTimeout(() => {
-      goNext();
-    }, 1000);
+
+    // Auto-advance after 1 second, but not on the last word (show Restart instead)
+    if (!isLastWord) {
+      setTimeout(() => {
+        goNext();
+      }, 1000);
+    }
   } else {
     buttonElement.classList.add('wrong');
     mcqFeedback.textContent = `✗ Correct answer: ${correct}`;
     mcqFeedback.classList.add('wrong');
-    
+
     // Highlight the correct answer
     allButtons.forEach(btn => {
       if (btn.textContent === correct) {
@@ -209,15 +223,20 @@ function updateProgress() {
 */
 function updateButtons() {
   if (isMcqMode) {
-    // In MCQ mode, check word boundaries within current ayah
     const totalWords = surahData.ayahs[currentAyahIndex].words.length;
     const isFirstWord = currentAyahIndex === 0 && currentWordIndex === 0;
     const isLastWord = currentAyahIndex === surahData.ayahs.length - 1 &&
                        currentWordIndex === totalWords - 1;
 
     prevBtn.disabled = isFirstWord;
-    nextBtn.disabled = isLastWord;
-    nextBtn.textContent = 'Next →';
+
+    if (isLastWord && mcqAnswered) {
+      nextBtn.disabled = false;
+      nextBtn.textContent = '↺ Restart';
+    } else {
+      nextBtn.disabled = !mcqAnswered; // locked until user answers
+      nextBtn.textContent = 'Next →';
+    }
   } else {
     // In flashcard mode, last ayah turns Next into Restart
     const isLast = currentAyahIndex === surahData.ayahs.length - 1;
@@ -252,14 +271,17 @@ function playRecitation() {
 function goNext() {
   if (isMcqMode) {
     const totalWords = surahData.ayahs[currentAyahIndex].words.length;
-    
+
     if (currentWordIndex < totalWords - 1) {
-      // More words in current ayah
       currentWordIndex++;
       displayCurrentContent();
     } else if (currentAyahIndex < surahData.ayahs.length - 1) {
-      // Move to next ayah, start at first word
       currentAyahIndex++;
+      currentWordIndex = 0;
+      displayCurrentContent();
+    } else {
+      // Last word of last ayah — restart
+      currentAyahIndex = 0;
       currentWordIndex = 0;
       displayCurrentContent();
     }
@@ -328,9 +350,10 @@ function switchMode(newIsMcq) {
   mcqAnswers.classList.toggle('hidden', !isMcqMode);
   playAudioBtn.classList.toggle('hidden', isMcqMode);
 
-  // Reset word index when entering MCQ mode
+  // Reset word index and answer state when entering MCQ mode
   if (isMcqMode) {
     currentWordIndex = 0;
+    mcqAnswered = false;
   }
 
   displayCurrentContent(false); // Don't autoplay when switching modes
