@@ -1,266 +1,127 @@
-/*
-  CSS = Cascading Style Sheets
-  It controls HOW things look (colors, sizes, positions).
-  
-  Format:  selector { property: value; }
-  
-  Selectors:
-    .classname  = targets elements with class="classname"
-    #idname     = targets the element with id="idname"
-    tagname     = targets all <tagname> elements
-*/
+/* ============================================
+   DUOLINGO-INSPIRED DESIGN SYSTEM
+   Key values:
+   - Background: #ffffff
+   - Primary text: #3c3c3c
+   - Muted text: #afafaf
+   - Primary green: #58cc02
+   - Green shadow: #58a700
+   - Border: #e5e5e5
+   - Border shadow: #e5e5e5
+   - Correct bg: #d7ffb8
+   - Wrong bg: #ffdfe0
+   - Wrong red: #ff4b4b
+============================================ */
 
-/* Reset default browser styles */
 * {
   margin: 0;
   padding: 0;
-  box-sizing: border-box;  /* Makes sizing more intuitive */
+  box-sizing: border-box;
 }
 
-/* Style the body (the whole page) */
 body {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-  background: linear-gradient(135deg, #1a5f4a 0%, #0d3025 100%);
-  min-height: 100vh;  /* vh = viewport height (screen height) */
-  color: #fff;
-}
-
-/* Main app container */
-.app {
-  max-width: 400px;      /* Don't get wider than 400px */
-  margin: 0 auto;        /* Center horizontally */
-  padding: 20px;
+  font-family: 'Nunito', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  background: #ffffff;
   min-height: 100vh;
-  display: flex;         /* Flexbox: a way to arrange items */
-  flex-direction: column;
-  align-items: center;
+  color: #3c3c3c;
 }
 
-/* Header styles */
-header {
-  text-align: center;
-  margin-bottom: 10px;
-}
-
-header h1 {
-  font-size: 1.5rem;     /* rem = relative to root font size */
-  font-weight: 600;
-}
-
-#surah-name {
-  opacity: 0.8;          /* Slightly transparent */
-  font-size: 0.9rem;
-}
-
-/* Progress indicator */
-.progress {
-  font-size: 0.9rem;
-  opacity: 0.7;
-  margin-bottom: 20px;
-}
-
-/* Flashcard view container */
-#flashcard-view {
-  width: 100%;
-}
-
-/* Card container - holds the flipping card */
-.card-container {
-  width: 100%;
-  height: 250px;
-  perspective: 1000px;   /* Creates 3D depth for flip effect */
-  margin-bottom: 20px;
-}
-
-/* The card itself */
-.card {
-  width: 100%;
-  height: 100%;
-  position: relative;
-  cursor: pointer;
-  transition: transform 0.6s;  /* Smooth animation over 0.6 seconds */
-  transform-style: preserve-3d; /* Keep 3D when rotating */
-}
-
-/* When card has "flipped" class, rotate it */
-.card.flipped {
-  transform: rotateY(180deg);
-}
-
-/* Both card faces share these styles */
-.card-front,
-.card-back {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  backface-visibility: hidden;  /* Hide when facing away */
-  border-radius: 16px;
-  padding: 24px;
+.app {
+  max-width: 480px;
+  margin: 0 auto;
+  padding: 32px 20px 40px;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
-  text-align: center;
-  overflow: hidden;  /* Prevent content from escaping */
-}
-
-/* Front of card */
-.card-front {
-  background: rgba(255, 255, 255, 0.95);
-  color: #1a5f4a;
-}
-
-/* Back of card (rotated to face forward when flipped) */
-.card-back {
-  background: rgba(255, 255, 255, 0.95);
-  color: #333;
-  transform: rotateY(180deg);
-}
-
-/* Arabic text styling */
-.arabic {
-  font-size: 1.8rem;
-  line-height: 2;
-  font-family: 'Traditional Arabic', 'Scheherazade', serif;
-  direction: rtl;  /* Right-to-left for Arabic */
-}
-
-.hint {
-  margin-top: 20px;
-  font-size: 0.85rem;
-  opacity: 0.5;
-}
-
-.transliteration {
-  font-style: italic;
-  color: #666;
-  margin-bottom: 16px;
-  font-size: 1rem;
-}
-
-.meaning {
-  font-size: 1.1rem;
-  line-height: 1.6;
-  color: #1a5f4a;
-  font-weight: 500;
-}
-
-/* Buttons */
-button {
-  background: rgba(255, 255, 255, 0.2);
-  color: #fff;
-  border: 1px solid rgba(255, 255, 255, 0.3);
-  padding: 12px 24px;
-  border-radius: 8px;
-  font-size: 1rem;
-  cursor: pointer;
-  transition: background 0.2s;  /* Smooth hover effect */
-}
-
-button:hover {
-  background: rgba(255, 255, 255, 0.3);
-}
-
-button:active {
-  transform: scale(0.98);  /* Slight shrink when pressed */
-}
-
-/* Audio button */
-.audio-btn {
-  margin-bottom: 20px;
-  background: rgba(255, 215, 0, 0.2);
-  border-color: rgba(255, 215, 0, 0.4);
-}
-
-/* Navigation buttons container */
-.nav-buttons {
-  display: flex;
-  gap: 12px;  /* Space between buttons */
-  width: 100%;
-}
-
-.nav-buttons button {
-  flex: 1;  /* Each button takes equal space */
-}
-
-/* Disabled button style */
-button:disabled {
-  opacity: 0.4;
-  cursor: not-allowed;
 }
 
 /* ============================================
-   MODE TOGGLE SWITCH
-   ============================================ */
+   HEADER
+============================================ */
 
-/*
-  The toggle is built with:
-  - A hidden <input type="checkbox">
-  - A visible <span class="slider"> styled to look like a switch
-  When the checkbox is checked, CSS moves the slider knob.
-*/
+header {
+  text-align: center;
+  margin-bottom: 8px;
+  width: 100%;
+}
+
+header h1 {
+  font-size: 1.6rem;
+  font-weight: 900;
+  color: #3c3c3c;
+  letter-spacing: -0.3px;
+}
+
+#surah-name {
+  color: #afafaf;
+  font-size: 0.9rem;
+  font-weight: 700;
+  margin-top: 2px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* ============================================
+   MODE TOGGLE
+============================================ */
 
 .mode-toggle {
   display: flex;
   align-items: center;
-  gap: 10px;
-  margin-bottom: 15px;
+  gap: 12px;
+  margin: 20px 0 12px;
 }
 
 .mode-label {
-  font-size: 0.9rem;
-  opacity: 0.6;
-  transition: opacity 0.2s;
+  font-size: 0.85rem;
+  font-weight: 800;
+  color: #afafaf;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+  transition: color 0.2s;
 }
 
 .mode-label.active {
-  opacity: 1;
-  font-weight: 600;
+  color: #3c3c3c;
 }
 
-/* The switch container */
 .switch {
   position: relative;
-  width: 50px;
-  height: 26px;
+  width: 52px;
+  height: 28px;
 }
 
-/* Hide the actual checkbox */
 .switch input {
   opacity: 0;
   width: 0;
   height: 0;
 }
 
-/* The slider background */
 .slider {
   position: absolute;
   cursor: pointer;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: rgba(255, 255, 255, 0.3);
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-color: #e5e5e5;
   transition: 0.3s;
-  border-radius: 26px;
+  border-radius: 28px;
 }
 
-/* The slider knob (using ::before pseudo-element) */
 .slider::before {
   position: absolute;
   content: "";
-  height: 20px;
-  width: 20px;
+  height: 22px;
+  width: 22px;
   left: 3px;
   bottom: 3px;
   background-color: white;
   transition: 0.3s;
   border-radius: 50%;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
 }
 
-/* When checkbox is checked, move the knob right */
 input:checked + .slider {
-  background-color: #ffd700;
+  background-color: #58cc02;
 }
 
 input:checked + .slider::before {
@@ -268,127 +129,317 @@ input:checked + .slider::before {
 }
 
 /* ============================================
-   MCQ MODE STYLES
-   ============================================ */
+   PROGRESS
+============================================ */
 
-/* Utility class to hide elements */
-.hidden {
-  display: none !important;
+.progress {
+  font-size: 0.8rem;
+  font-weight: 800;
+  color: #afafaf;
+  margin-bottom: 24px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
 }
 
-/* MCQ view wrapper — must match flashcard-view width */
+#word-progress {
+  margin-left: 6px;
+  color: #58cc02;
+}
+
+/* ============================================
+   FLASHCARD VIEW
+============================================ */
+
+#flashcard-view {
+  width: 100%;
+}
+
+.card-container {
+  width: 100%;
+  height: 240px;
+  perspective: 1000px;
+  margin-bottom: 20px;
+}
+
+.card {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  cursor: pointer;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+}
+
+.card.flipped {
+  transform: rotateY(180deg);
+}
+
+.card-front,
+.card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: 16px;
+  padding: 28px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  overflow: hidden;
+  background: #ffffff;
+  border: 2px solid #e5e5e5;
+  box-shadow: 0 4px 0 #e5e5e5;
+}
+
+.card-back {
+  transform: rotateY(180deg);
+}
+
+/* ============================================
+   TYPOGRAPHY
+============================================ */
+
+.arabic {
+  font-size: 2rem;
+  line-height: 1.8;
+  font-family: 'Traditional Arabic', 'Scheherazade', serif;
+  direction: rtl;
+  color: #3c3c3c;
+  font-weight: 700;
+}
+
+.hint {
+  margin-top: 14px;
+  font-size: 0.8rem;
+  color: #afafaf;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.transliteration {
+  font-style: italic;
+  color: #afafaf;
+  margin-bottom: 10px;
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+.meaning {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: #3c3c3c;
+  font-weight: 800;
+}
+
+/* ============================================
+   BUTTONS — BASE
+============================================ */
+
+button {
+  font-family: 'Nunito', inherit;
+  font-weight: 800;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  cursor: pointer;
+  border-radius: 12px;
+  padding: 14px 24px;
+  transition: all 0.1s;
+  border: 2px solid transparent;
+}
+
+button:active:not(:disabled) {
+  transform: translateY(3px);
+  box-shadow: none !important;
+}
+
+button:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* Audio button */
+.audio-btn {
+  background: #ffffff;
+  color: #1cb0f6;
+  border: 2px solid #1cb0f6;
+  box-shadow: 0 4px 0 #0090d9;
+  margin-bottom: 20px;
+  width: 100%;
+}
+
+.audio-btn:hover:not(:disabled) {
+  background: #e8f7fe;
+}
+
+/* Nav buttons */
+.nav-buttons {
+  display: flex;
+  gap: 12px;
+  width: 100%;
+}
+
+#prev-btn {
+  flex: 1;
+  background: #ffffff;
+  color: #afafaf;
+  border: 2px solid #e5e5e5;
+  box-shadow: 0 4px 0 #e5e5e5;
+}
+
+#prev-btn:hover:not(:disabled) {
+  background: #f7f7f7;
+}
+
+#next-btn {
+  flex: 1;
+  background: #58cc02;
+  color: #ffffff;
+  border: 2px solid #58a700;
+  box-shadow: 0 4px 0 #58a700;
+}
+
+#next-btn:hover:not(:disabled) {
+  background: #61d900;
+}
+
+/* ============================================
+   MCQ VIEW
+============================================ */
+
 #mcq-view {
   width: 100%;
 }
 
-/* MCQ card — matches flashcard appearance */
 .mcq-card {
-  background: rgba(255, 255, 255, 0.95);
+  background: #ffffff;
+  border: 2px solid #e5e5e5;
+  box-shadow: 0 4px 0 #e5e5e5;
   border-radius: 16px;
-  padding: 24px;
+  padding: 28px;
   width: 100%;
-  height: 250px;
+  height: 240px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   text-align: center;
   margin-bottom: 20px;
-  color: #1a5f4a;
   overflow: hidden;
 }
 
 .mcq-card .arabic {
-  color: #1a5f4a;
+  color: #3c3c3c;
   margin-bottom: 8px;
 }
 
 .mcq-card .transliteration {
-  color: #666;
+  color: #afafaf;
   font-style: italic;
 }
 
-/* MCQ answer options — 2x2 grid, outside the card */
+/* MCQ answers block */
 #mcq-answers {
   width: 100%;
   margin-bottom: 16px;
 }
 
-.mcq-options {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 10px;
-  width: 100%;
-}
-
-/* Individual MCQ option button */
-.mcq-option {
-  background: #1a5f4a;
-  color: white;
-  border: none;
-  padding: 14px 20px;
-  border-radius: 8px;
-  font-size: 0.95rem;
-  cursor: pointer;
-  transition: all 0.2s;
-  text-align: center;
-}
-
-.mcq-option:hover {
-  background: #247a5f;
-  transform: scale(1.02);
-}
-
-/* Correct answer styling */
-.mcq-option.correct {
-  background: #28a745;
-  animation: pulse 0.3s;
-}
-
-/* Wrong answer styling */
-.mcq-option.wrong {
-  background: #dc3545;
-  animation: shake 0.3s;
-}
-
 /* Feedback text */
 .feedback {
-  font-weight: 600;
-  min-height: 24px;
-  margin: 8px 0;
+  font-weight: 800;
+  min-height: 22px;
+  margin-bottom: 10px;
+  font-size: 0.95rem;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
 }
 
 .feedback.correct {
-  color: #28a745;
+  color: #58cc02;
 }
 
 .feedback.wrong {
-  color: #dc3545;
+  color: #ff4b4b;
 }
 
-/* Word progress indicator */
-#word-progress {
-  margin-left: 8px;
-  color: #ffd700;
+/* MCQ options — 2x2 grid, Duolingo raised style */
+.mcq-options {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  width: 100%;
+}
+
+.mcq-option {
+  background: #ffffff;
+  color: #3c3c3c;
+  border: 2px solid #e5e5e5;
+  box-shadow: 0 4px 0 #e5e5e5;
+  padding: 16px 12px;
+  border-radius: 12px;
+  font-size: 0.95rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.1s;
+  text-align: center;
+  text-transform: none;
+  letter-spacing: 0;
+}
+
+.mcq-option:hover:not(:disabled) {
+  border-color: #84d8ff;
+  box-shadow: 0 4px 0 #84d8ff;
+  background: #f7f7f7;
+}
+
+.mcq-option:active:not(:disabled) {
+  transform: translateY(4px);
+  box-shadow: none;
+}
+
+/* Correct answer */
+.mcq-option.correct {
+  background: #d7ffb8;
+  border-color: #58cc02;
+  box-shadow: 0 4px 0 #58a700;
+  color: #3c3c3c;
+  animation: pulse 0.3s;
+}
+
+/* Wrong answer */
+.mcq-option.wrong {
+  background: #ffdfe0;
+  border-color: #ff4b4b;
+  box-shadow: 0 4px 0 #ea2b2b;
+  color: #3c3c3c;
+  animation: shake 0.3s;
+}
+
+/* ============================================
+   UTILITY
+============================================ */
+
+.hidden {
+  display: none !important;
 }
 
 /* ============================================
    ANIMATIONS
-   ============================================ */
-
-/*
-  @keyframes defines an animation sequence.
-  We then apply it with the 'animation' property.
-*/
+============================================ */
 
 @keyframes pulse {
   0% { transform: scale(1); }
-  50% { transform: scale(1.05); }
+  50% { transform: scale(1.03); }
   100% { transform: scale(1); }
 }
 
 @keyframes shake {
   0%, 100% { transform: translateX(0); }
-  25% { transform: translateX(-5px); }
-  75% { transform: translateX(5px); }
+  25% { transform: translateX(-6px); }
+  75% { transform: translateX(6px); }
 }
