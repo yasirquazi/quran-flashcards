@@ -324,6 +324,7 @@ function switchMode() {
   flashcardView.classList.toggle('hidden', isMcqMode);
   mcqView.classList.toggle('hidden', !isMcqMode);
   mcqAnswers.classList.toggle('hidden', !isMcqMode);
+  playAudioBtn.classList.toggle('hidden', isMcqMode); // Hidden in MCQ mode, kept for future use
   
   // Reset word index when entering MCQ mode
   if (isMcqMode) {
