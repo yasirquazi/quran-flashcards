@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <!-- Makes the app scale properly on phones -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- PWA: Tells browsers this can be installed as an app -->
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#1a5f4a">
+  
+  <title>Quran Flashcards</title>
+  
+  <!-- Link to our CSS file for styling -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- 
+    HTML uses "tags" to create elements.
+    <div> is a container (like a box).
+    id="..." gives it a unique name so JavaScript can find it.
+    class="..." lets CSS style multiple elements the same way.
+  -->
+  
+  <div class="app">
+    <!-- Header section -->
+    <header>
+      <h1>Quran Flashcards</h1>
+      <p id="surah-name">Surah Al-Fatiha</p>
+    </header>
+
+    <!-- 
+      MODE TOGGLE
+      A toggle switch lets users pick between two options.
+      We use a hidden checkbox + styled label for a nice UI.
+    -->
+    <div class="mode-toggle">
+      <span class="mode-label" id="flashcard-label">Flashcard</span>
+      <label class="switch">
+        <input type="checkbox" id="mode-switch">
+        <span class="slider"></span>
+      </label>
+      <span class="mode-label" id="mcq-label">MCQ</span>
+    </div>
+
+    <!-- Progress indicator -->
+    <div class="progress">
+      <span id="current-ayah">1</span> / <span id="total-ayahs">7</span>
+      <span id="word-progress"></span>
+    </div>
+
+    <!-- FLASHCARD MODE VIEW -->
+    <div id="flashcard-view">
+      <div class="card-container">
+        <div class="card" id="flashcard">
+          <!-- Front of card: Arabic text -->
+          <div class="card-front">
+            <p class="arabic" id="arabic-text"></p>
+            <p class="hint">Tap to reveal meaning</p>
+          </div>
+          
+          <!-- Back of card: Translation -->
+          <div class="card-back">
+            <p class="transliteration" id="transliteration"></p>
+            <p class="meaning" id="meaning"></p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!--
+      MCQ MODE VIEW
+      Shows one word at a time. Card styled like flashcard.
+      'hidden' class hides this by default.
+    -->
+    <div id="mcq-view" class="hidden">
+      <div class="mcq-card">
+        <!-- The Arabic word being tested -->
+        <p class="arabic" id="mcq-arabic"></p>
+        <p class="transliteration" id="mcq-transliteration"></p>
+      </div>
+    </div>
+
+    <!-- Audio play button -->
+    <button class="audio-btn" id="play-audio">
+      🔊 Play Recitation
+    </button>
+
+    <!-- MCQ answer options — outside the card, below audio, above nav -->
+    <div id="mcq-answers" class="hidden">
+      <p id="mcq-feedback" class="feedback"></p>
+      <div class="mcq-options" id="mcq-options">
+        <!-- Options will be inserted by JavaScript -->
+      </div>
+    </div>
+
+    <!-- Navigation buttons -->
+    <div class="nav-buttons">
+      <button id="prev-btn">← Previous</button>
+      <button id="next-btn">Next →</button>
+    </div>
+  </div>
+
+  <!-- Load our JavaScript at the end (so HTML loads first) -->
+  <script src="app.js"></script>
+</body>
+</html>

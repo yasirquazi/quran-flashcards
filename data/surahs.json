@@ -1,0 +1,96 @@
+{
+  "surahs": [
+    {
+      "number": 1,
+      "name": "Al-Fatiha",
+      "englishName": "The Opening",
+      "ayahs": [
+        {
+          "number": 1,
+          "arabic": "بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ",
+          "transliteration": "Bismillahir Rahmanir Raheem",
+          "meaning": "In the name of Allah, the Most Gracious, the Most Merciful",
+          "words": [
+            { "arabic": "بِسْمِ", "transliteration": "Bismi", "meaning": "In the name of", "options": ["In the name of", "All praise", "The path", "Lord of"] },
+            { "arabic": "اللَّهِ", "transliteration": "Allah", "meaning": "Allah", "options": ["Allah", "the worlds", "the Day", "those who"] },
+            { "arabic": "الرَّحْمَٰنِ", "transliteration": "Ar-Rahman", "meaning": "the Most Gracious", "options": ["the Most Gracious", "the Most Merciful", "the Master", "the Lord"] },
+            { "arabic": "الرَّحِيمِ", "transliteration": "Ar-Raheem", "meaning": "the Most Merciful", "options": ["the Most Merciful", "the Most Gracious", "the Sovereign", "the Creator"] }
+          ]
+        },
+        {
+          "number": 2,
+          "arabic": "الْحَمْدُ لِلَّهِ رَبِّ الْعَالَمِينَ",
+          "transliteration": "Alhamdu lillahi Rabbil 'aalameen",
+          "meaning": "All praise is due to Allah, Lord of all the worlds",
+          "words": [
+            { "arabic": "الْحَمْدُ", "transliteration": "Al-hamdu", "meaning": "All praise", "options": ["All praise", "In the name", "The path", "Guide us"] },
+            { "arabic": "لِلَّهِ", "transliteration": "lillahi", "meaning": "is due to Allah", "options": ["is due to Allah", "of the worlds", "the Day", "we worship"] },
+            { "arabic": "رَبِّ", "transliteration": "Rabbi", "meaning": "Lord", "options": ["Lord", "King", "Path", "Name"] },
+            { "arabic": "الْعَالَمِينَ", "transliteration": "al-'aalameen", "meaning": "of all the worlds", "options": ["of all the worlds", "of the Day", "the straight", "upon them"] }
+          ]
+        },
+        {
+          "number": 3,
+          "arabic": "الرَّحْمَٰنِ الرَّحِيمِ",
+          "transliteration": "Ar-Rahmanir-Raheem",
+          "meaning": "The Most Gracious, the Most Merciful",
+          "words": [
+            { "arabic": "الرَّحْمَٰنِ", "transliteration": "Ar-Rahman", "meaning": "The Most Gracious", "options": ["The Most Gracious", "The Most Merciful", "The Lord", "The Master"] },
+            { "arabic": "الرَّحِيمِ", "transliteration": "Ar-Raheem", "meaning": "the Most Merciful", "options": ["the Most Merciful", "the Most Gracious", "the Sovereign", "the King"] }
+          ]
+        },
+        {
+          "number": 4,
+          "arabic": "مَالِكِ يَوْمِ الدِّينِ",
+          "transliteration": "Maaliki Yawmid-Deen",
+          "meaning": "Master of the Day of Judgment",
+          "words": [
+            { "arabic": "مَالِكِ", "transliteration": "Maaliki", "meaning": "Master/Sovereign", "options": ["Master/Sovereign", "Lord", "Creator", "Guide"] },
+            { "arabic": "يَوْمِ", "transliteration": "Yawmi", "meaning": "of the Day", "options": ["of the Day", "of the worlds", "the path", "the name"] },
+            { "arabic": "الدِّينِ", "transliteration": "ad-Deen", "meaning": "of Judgment", "options": ["of Judgment", "of worship", "of mercy", "of praise"] }
+          ]
+        },
+        {
+          "number": 5,
+          "arabic": "إِيَّاكَ نَعْبُدُ وَإِيَّاكَ نَسْتَعِينُ",
+          "transliteration": "Iyyaaka na'budu wa lyyaaka nasta'een",
+          "meaning": "You alone we worship, and You alone we ask for help",
+          "words": [
+            { "arabic": "إِيَّاكَ", "transliteration": "Iyyaaka", "meaning": "You alone", "options": ["You alone", "We all", "They are", "Those who"] },
+            { "arabic": "نَعْبُدُ", "transliteration": "na'budu", "meaning": "we worship", "options": ["we worship", "we guide", "we praise", "we ask"] },
+            { "arabic": "وَإِيَّاكَ", "transliteration": "wa iyyaaka", "meaning": "and You alone", "options": ["and You alone", "and we all", "and those who", "and the path"] },
+            { "arabic": "نَسْتَعِينُ", "transliteration": "nasta'een", "meaning": "we ask for help", "options": ["we ask for help", "we worship", "we praise", "we guide"] }
+          ]
+        },
+        {
+          "number": 6,
+          "arabic": "اهْدِنَا الصِّرَاطَ الْمُسْتَقِيمَ",
+          "transliteration": "Ihdinas-Siraatal-Mustaqeem",
+          "meaning": "Guide us to the straight path",
+          "words": [
+            { "arabic": "اهْدِنَا", "transliteration": "Ihdina", "meaning": "Guide us", "options": ["Guide us", "Help us", "Show us", "Lead us"] },
+            { "arabic": "الصِّرَاطَ", "transliteration": "as-Sirat", "meaning": "to the path", "options": ["to the path", "to the Day", "to the Lord", "to the worlds"] },
+            { "arabic": "الْمُسْتَقِيمَ", "transliteration": "al-Mustaqeem", "meaning": "the straight", "options": ["the straight", "the blessed", "the guided", "the merciful"] }
+          ]
+        },
+        {
+          "number": 7,
+          "arabic": "صِرَاطَ الَّذِينَ أَنْعَمْتَ عَلَيْهِمْ غَيْرِ الْمَغْضُوبِ عَلَيْهِمْ وَلَا الضَّالِّينَ",
+          "transliteration": "Siraatal-lazeena an'amta 'alaihim ghayril-maghdoobi 'alaihim wa lad-daaalleen",
+          "meaning": "The path of those upon whom You have bestowed favor, not of those who have earned Your anger or of those who have gone astray",
+          "words": [
+            { "arabic": "صِرَاطَ", "transliteration": "Sirat", "meaning": "The path", "options": ["The path", "The day", "The Lord", "The name"] },
+            { "arabic": "الَّذِينَ", "transliteration": "allazeena", "meaning": "of those who", "options": ["of those who", "of the worlds", "of the Day", "of praise"] },
+            { "arabic": "أَنْعَمْتَ", "transliteration": "an'amta", "meaning": "You have bestowed favor", "options": ["You have bestowed favor", "You have guided", "You have created", "You have shown"] },
+            { "arabic": "عَلَيْهِمْ", "transliteration": "'alaihim", "meaning": "upon them", "options": ["upon them", "upon us", "for them", "with them"] },
+            { "arabic": "غَيْرِ", "transliteration": "ghayri", "meaning": "not", "options": ["not", "and", "or", "but"] },
+            { "arabic": "الْمَغْضُوبِ", "transliteration": "al-maghdoobi", "meaning": "those who earned anger", "options": ["those who earned anger", "those who are blessed", "those who worship", "those who guide"] },
+            { "arabic": "عَلَيْهِمْ", "transliteration": "'alaihim", "meaning": "upon them", "options": ["upon them", "upon us", "for them", "with them"] },
+            { "arabic": "وَلَا", "transliteration": "wa la", "meaning": "and not", "options": ["and not", "or not", "but not", "if not"] },
+            { "arabic": "الضَّالِّينَ", "transliteration": "ad-daaalleen", "meaning": "those who have gone astray", "options": ["those who have gone astray", "those who are guided", "those who worship", "those who believe"] }
+          ]
+        }
+      ]
+    }
+  ]
+}
