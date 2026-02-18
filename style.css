@@ -362,6 +362,8 @@ button:disabled {
   text-align: center;
   text-transform: none;
   letter-spacing: 0;
+  -webkit-tap-highlight-color: transparent;
+  outline: none;
 }
 
 .mcq-option:hover:not(:disabled) {

@@ -115,6 +115,9 @@ function displayMcqWord() {
   // Reset answered state for new word
   mcqAnswered = false;
 
+  // Clear any lingering focus/hover from the previous tap (iOS Safari quirk)
+  if (document.activeElement) document.activeElement.blur();
+
   // Display the word
   mcqArabic.textContent = word.arabic;
   mcqTransliteration.textContent = word.transliteration;
