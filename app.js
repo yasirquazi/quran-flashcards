@@ -20,6 +20,7 @@ let surahData = null;       // Will hold our loaded data
 let audio = null;           // Will hold the audio player
 let isMcqMode = false;      // Track which mode we're in
 let mcqAnswered = false;    // Whether the current MCQ word has been answered
+let isMuted = false;        // Whether autoplay is muted
 
 // ============================================
 // DOM ELEMENTS - getting references to HTML
@@ -52,6 +53,7 @@ const playAudioBtn = document.getElementById('play-audio');
 const tabFlashcard = document.getElementById('tab-flashcard');
 const tabMcq = document.getElementById('tab-mcq');
 const mcqAnswers = document.getElementById('mcq-answers');
+const muteBtn = document.getElementById('mute-btn');
 
 // ============================================
 // FUNCTIONS - reusable blocks of code
@@ -80,8 +82,8 @@ function displayCurrentContent(autoplay = true) {
     displayMcqWord();
   } else {
     displayFlashcard();
-    // Auto-play audio only in flashcard mode, and only when navigating
-    if (autoplay) playRecitation();
+    // Auto-play audio only in flashcard mode, when navigating, and not muted
+    if (autoplay && !isMuted) playRecitation();
   }
   updateProgress();
   updateButtons();
@@ -410,6 +412,14 @@ playAudioBtn.addEventListener('click', playRecitation);
 // Mode tab buttons
 tabFlashcard.addEventListener('click', () => switchMode(false));
 tabMcq.addEventListener('click', () => switchMode(true));
+
+// Mute toggle — only affects autoplay, not manual Play Recitation button
+muteBtn.addEventListener('click', () => {
+  isMuted = !isMuted;
+  muteBtn.textContent = isMuted ? '🔇' : '🔊';
+  muteBtn.classList.toggle('muted', isMuted);
+  if (isMuted && audio) audio.pause(); // Stop current autoplay if muting
+});
 
 // Keyboard navigation (arrow keys)
 document.addEventListener('keydown', function(event) {
