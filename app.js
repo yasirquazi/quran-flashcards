@@ -77,13 +77,13 @@ async function loadSurahData() {
   Decides what to show based on current mode.
   This is called whenever we navigate or switch modes.
 */
-function displayCurrentContent() {
+function displayCurrentContent(autoplay = true) {
   if (isMcqMode) {
     displayMcqWord();
   } else {
     displayFlashcard();
-    // Auto-play audio only in flashcard mode
-    playRecitation();
+    // Auto-play audio only in flashcard mode, and only when navigating
+    if (autoplay) playRecitation();
   }
   updateProgress();
   updateButtons();
@@ -331,7 +331,7 @@ function switchMode() {
     currentWordIndex = 0;
   }
   
-  displayCurrentContent();
+  displayCurrentContent(false); // Don't autoplay when toggling modes
 }
 
 // ============================================
