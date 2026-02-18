@@ -212,15 +212,18 @@ function updateButtons() {
     // In MCQ mode, check word boundaries within current ayah
     const totalWords = surahData.ayahs[currentAyahIndex].words.length;
     const isFirstWord = currentAyahIndex === 0 && currentWordIndex === 0;
-    const isLastWord = currentAyahIndex === surahData.ayahs.length - 1 && 
+    const isLastWord = currentAyahIndex === surahData.ayahs.length - 1 &&
                        currentWordIndex === totalWords - 1;
-    
+
     prevBtn.disabled = isFirstWord;
     nextBtn.disabled = isLastWord;
+    nextBtn.textContent = 'Next →';
   } else {
-    // In flashcard mode, check ayah boundaries
+    // In flashcard mode, last ayah turns Next into Restart
+    const isLast = currentAyahIndex === surahData.ayahs.length - 1;
     prevBtn.disabled = currentAyahIndex === 0;
-    nextBtn.disabled = currentAyahIndex === surahData.ayahs.length - 1;
+    nextBtn.disabled = false;
+    nextBtn.textContent = isLast ? '↺ Restart' : 'Next →';
   }
 }
 
@@ -261,11 +264,13 @@ function goNext() {
       displayCurrentContent();
     }
   } else {
-    // Flashcard mode: just move to next ayah
+    // Flashcard mode: next ayah, or restart from beginning
     if (currentAyahIndex < surahData.ayahs.length - 1) {
       currentAyahIndex++;
-      displayCurrentContent();
+    } else {
+      currentAyahIndex = 0;
     }
+    displayCurrentContent();
   }
 }
 
