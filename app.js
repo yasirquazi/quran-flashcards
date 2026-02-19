@@ -144,6 +144,7 @@ function selectSurah(index) {
   // Switch views
   document.getElementById('home-view').classList.add('hidden');
   document.getElementById('study-view').classList.remove('hidden');
+  window.scrollTo(0, 0);
 
   displayCurrentContent();
 }
