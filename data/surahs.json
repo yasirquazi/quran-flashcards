@@ -663,7 +663,186 @@
       "nameEnglish": "Ya-Sin",
       "nameMeaning": "Ya-Sin",
       "totalAyahs": 83,
-      "hasData": false
+      "hasData": true,
+      "ayahs": [
+        {
+          "number": 1,
+          "arabic": "يس",
+          "transliteration": "Ya-Seen",
+          "meaning": "Ya Seen",
+          "words": [
+            {
+              "arabic": "يس",
+              "transliteration": "Ya-Seen",
+              "meaning": "Ya Seen (opening letters)",
+              "options": [
+                "Ya Seen (opening letters)",
+                "Arabic letters Ya and Seen",
+                "initials known to Allah",
+                "mystery letters of the Quran"
+              ]
+            }
+          ]
+        },
+        {
+          "number": 2,
+          "arabic": "وَالْقُرْآنِ الْحَكِيمِ",
+          "transliteration": "Wal-qur-ani al-hakeem",
+          "meaning": "By the wise Quran",
+          "words": [
+            {
+              "arabic": "وَالْقُرْآنِ الْحَكِيمِ",
+              "transliteration": "Wal-qur-ani al-hakeem",
+              "meaning": "by the wise Quran",
+              "options": [
+                "by the wise Quran",
+                "by the Quran full of wisdom",
+                "by the perfect Quran",
+                "by the Quran of judgment"
+              ]
+            }
+          ]
+        },
+        {
+          "number": 3,
+          "arabic": "إِنَّكَ لَمِنَ الْمُرْسَلِينَ",
+          "transliteration": "Innaka lamina al-mursaleen",
+          "meaning": "Indeed you are of the messengers",
+          "words": [
+            {
+              "arabic": "إِنَّكَ لَمِنَ الْمُرْسَلِينَ",
+              "transliteration": "Innaka lamina al-mursaleen",
+              "meaning": "you are truly one of the messengers",
+              "options": [
+                "you are truly one of the messengers",
+                "indeed you are a sent prophet",
+                "you are certainly among the sent ones",
+                "you are verily a messenger"
+              ]
+            }
+          ]
+        },
+        {
+          "number": 36,
+          "arabic": "سُبْحَانَ الَّذِي خَلَقَ الْأَزْوَاجَ كُلَّهَا مِمَّا تُنبِتُ الْأَرْضُ وَمِنْ أَنفُسِهِمْ وَمِمَّا لَا يَعْلَمُونَ",
+          "transliteration": "Subhana allathee khalaqa al-azwaja kullaha mimma tumbitu al-ardu wamin anfusihim wamimma la yaalamoon",
+          "meaning": "Exalted is He who created all pairs — from what the earth grows and from themselves and from that which they do not know",
+          "words": [
+            {
+              "arabic": "سُبْحَانَ الَّذِي خَلَقَ الْأَزْوَاجَ كُلَّهَا",
+              "transliteration": "Subhana allathee khalaqa al-azwaja kullaha",
+              "meaning": "glory to He who created all pairs",
+              "options": [
+                "glory to He who created all pairs",
+                "exalted is the One who made all pairs",
+                "praise to the Creator of all pairs",
+                "glory be to He who made everything in pairs"
+              ]
+            },
+            {
+              "arabic": "مِمَّا لَا يَعْلَمُونَ",
+              "transliteration": "wamimma la yaalamoon",
+              "meaning": "and of things they do not know",
+              "options": [
+                "and of things they do not know",
+                "and of what they are unaware",
+                "and of what they cannot understand",
+                "and of unknown things"
+              ]
+            }
+          ]
+        },
+        {
+          "number": 51,
+          "arabic": "وَنُفِخَ فِي الصُّورِ فَإِذَا هُم مِّنَ الْأَجْدَاثِ إِلَى رَبِّهِمْ يَنسِلُونَ",
+          "transliteration": "Wanufikha fee as-suri fa-itha hum mina al-ajthaathi ila rabbihim yansiloon",
+          "meaning": "And the Horn will be blown; and at once from the graves to their Lord they will hasten",
+          "words": [
+            {
+              "arabic": "وَنُفِخَ فِي الصُّورِ",
+              "transliteration": "Wanufikha fee as-suri",
+              "meaning": "and the Horn will be blown",
+              "options": [
+                "and the Horn will be blown",
+                "and the trumpet will sound",
+                "and the Horn is sounded",
+                "and the trumpet blast comes"
+              ]
+            },
+            {
+              "arabic": "مِّنَ الْأَجْدَاثِ إِلَى رَبِّهِمْ يَنسِلُونَ",
+              "transliteration": "mina al-ajthaathi ila rabbihim yansiloon",
+              "meaning": "from the graves they rush to their Lord",
+              "options": [
+                "from the graves they rush to their Lord",
+                "out of the tombs they hasten to Allah",
+                "from their graves they hurry toward their Lord",
+                "they sprint from their graves to their Lord"
+              ]
+            }
+          ]
+        },
+        {
+          "number": 58,
+          "arabic": "سَلَامٌ قَوْلًا مِّن رَّبٍّ رَّحِيمٍ",
+          "transliteration": "Salamun qawlan min rabbin raheem",
+          "meaning": "Peace — a word from a Merciful Lord",
+          "words": [
+            {
+              "arabic": "سَلَامٌ",
+              "transliteration": "Salamun",
+              "meaning": "Peace",
+              "options": [
+                "Peace",
+                "Greetings of peace",
+                "Salam",
+                "Blessings of peace"
+              ]
+            },
+            {
+              "arabic": "قَوْلًا مِّن رَّبٍّ رَّحِيمٍ",
+              "transliteration": "qawlan min rabbin raheem",
+              "meaning": "a word from a Merciful Lord",
+              "options": [
+                "a word from a Merciful Lord",
+                "said by a Compassionate Lord",
+                "as a statement from your Merciful Creator",
+                "spoken from a Lord of mercy"
+              ]
+            }
+          ]
+        },
+        {
+          "number": 82,
+          "arabic": "إِنَّمَا أَمْرُهُ إِذَا أَرَادَ شَيْئًا أَن يَقُولَ لَهُ كُن فَيَكُونُ",
+          "transliteration": "Innama amruhu itha arada shay-an an yaqoola lahu kun fayakoon",
+          "meaning": "His command is only when He intends a thing that He says to it 'Be,' and it is",
+          "words": [
+            {
+              "arabic": "إِنَّمَا أَمْرُهُ",
+              "transliteration": "Innama amruhu",
+              "meaning": "His command is only",
+              "options": [
+                "His command is only",
+                "His matter is simply",
+                "His power is such that",
+                "His decree is merely"
+              ]
+            },
+            {
+              "arabic": "أَن يَقُولَ لَهُ كُن فَيَكُونُ",
+              "transliteration": "an yaqoola lahu kun fayakoon",
+              "meaning": "that He says 'Be' and it is",
+              "options": [
+                "that He says 'Be' and it is",
+                "He only says 'Be' and it comes into existence",
+                "He speaks 'Kun' and it happens",
+                "He simply commands and it exists"
+              ]
+            }
+          ]
+        }
+      ]
     },
     {
       "number": 37,
@@ -815,7 +994,164 @@
       "nameEnglish": "Ar-Rahman",
       "nameMeaning": "The Beneficent",
       "totalAyahs": 78,
-      "hasData": false
+      "hasData": true,
+      "ayahs": [
+        {
+          "number": 1,
+          "arabic": "الرَّحْمَنُ",
+          "transliteration": "Ar-rahman",
+          "meaning": "The Most Merciful",
+          "words": [
+            {
+              "arabic": "الرَّحْمَنُ",
+              "transliteration": "Ar-rahman",
+              "meaning": "the Most Merciful",
+              "options": [
+                "the Most Merciful",
+                "the Most Gracious",
+                "the Compassionate",
+                "the Beneficent"
+              ]
+            }
+          ]
+        },
+        {
+          "number": 2,
+          "arabic": "عَلَّمَ الْقُرْآنَ",
+          "transliteration": "Allama al-qur-an",
+          "meaning": "Taught the Quran",
+          "words": [
+            {
+              "arabic": "عَلَّمَ الْقُرْآنَ",
+              "transliteration": "Allama al-qur-an",
+              "meaning": "taught the Quran",
+              "options": [
+                "taught the Quran",
+                "revealed the Quran",
+                "taught mankind the Quran",
+                "gave the Quran as knowledge"
+              ]
+            }
+          ]
+        },
+        {
+          "number": 3,
+          "arabic": "خَلَقَ الْإِنسَانَ",
+          "transliteration": "Khalaqa al-insan",
+          "meaning": "Created mankind",
+          "words": [
+            {
+              "arabic": "خَلَقَ الْإِنسَانَ",
+              "transliteration": "Khalaqa al-insan",
+              "meaning": "He created mankind",
+              "options": [
+                "He created mankind",
+                "He made human beings",
+                "He brought man into being",
+                "He originated the human"
+              ]
+            }
+          ]
+        },
+        {
+          "number": 4,
+          "arabic": "عَلَّمَهُ الْبَيَانَ",
+          "transliteration": "Allamahu al-bayan",
+          "meaning": "Taught him eloquence",
+          "words": [
+            {
+              "arabic": "عَلَّمَهُ الْبَيَانَ",
+              "transliteration": "Allamahu al-bayan",
+              "meaning": "and taught him speech/expression",
+              "options": [
+                "and taught him speech/expression",
+                "and gave him the ability to speak",
+                "and granted him eloquence",
+                "and taught him to communicate"
+              ]
+            }
+          ]
+        },
+        {
+          "number": 13,
+          "arabic": "فَبِأَيِّ آلَاءِ رَبِّكُمَا تُكَذِّبَانِ",
+          "transliteration": "Fabi-ayyi ala-i rabbikuma tukaththiban",
+          "meaning": "So which of the favors of your Lord would you both deny?",
+          "words": [
+            {
+              "arabic": "فَبِأَيِّ آلَاءِ رَبِّكُمَا",
+              "transliteration": "Fabi-ayyi ala-i rabbikuma",
+              "meaning": "then which of your Lord's favors",
+              "options": [
+                "then which of your Lord's favors",
+                "so which of His blessings",
+                "then which blessing of your Lord",
+                "so which of the gifts of your Lord"
+              ]
+            },
+            {
+              "arabic": "تُكَذِّبَانِ",
+              "transliteration": "tukaththiban",
+              "meaning": "will you both deny",
+              "options": [
+                "will you both deny",
+                "would you reject",
+                "would the two of you deny",
+                "do you both falsify"
+              ]
+            }
+          ]
+        },
+        {
+          "number": 26,
+          "arabic": "كُلُّ مَنْ عَلَيْهَا فَانٍ",
+          "transliteration": "Kullu man alayha fan",
+          "meaning": "Everyone upon the earth will perish",
+          "words": [
+            {
+              "arabic": "كُلُّ مَنْ عَلَيْهَا فَانٍ",
+              "transliteration": "Kullu man alayha fan",
+              "meaning": "all who are on the earth will perish",
+              "options": [
+                "all who are on the earth will perish",
+                "everyone on earth must fade away",
+                "all upon it will pass away",
+                "every creature on earth will cease to exist"
+              ]
+            }
+          ]
+        },
+        {
+          "number": 27,
+          "arabic": "وَيَبْقَى وَجْهُ رَبِّكَ ذُو الْجَلَالِ وَالْإِكْرَامِ",
+          "transliteration": "Wayabqa wajhu rabbika thul-jalali wal-ikram",
+          "meaning": "And there will remain the Face of your Lord, Owner of Majesty and Honor",
+          "words": [
+            {
+              "arabic": "وَيَبْقَى وَجْهُ رَبِّكَ",
+              "transliteration": "Wayabqa wajhu rabbika",
+              "meaning": "but the Face of your Lord will remain",
+              "options": [
+                "but the Face of your Lord will remain",
+                "and only your Lord will endure",
+                "and your Lord's Essence will remain",
+                "but your Lord will last forever"
+              ]
+            },
+            {
+              "arabic": "ذُو الْجَلَالِ وَالْإِكْرَامِ",
+              "transliteration": "thul-jalali wal-ikram",
+              "meaning": "Owner of Majesty and Honor",
+              "options": [
+                "Owner of Majesty and Honor",
+                "Possessor of Glory and Nobility",
+                "of Greatness and Generosity",
+                "of Majesty and Reverence"
+              ]
+            }
+          ]
+        }
+      ]
     },
     {
       "number": 56,
@@ -823,7 +1159,191 @@
       "nameEnglish": "Al-Waqi'ah",
       "nameMeaning": "The Inevitable",
       "totalAyahs": 96,
-      "hasData": false
+      "hasData": true,
+      "ayahs": [
+        {
+          "number": 1,
+          "arabic": "إِذَا وَقَعَتِ الْوَاقِعَةُ",
+          "transliteration": "Itha waqaati al-waqiah",
+          "meaning": "When the Inevitable Event occurs",
+          "words": [
+            {
+              "arabic": "إِذَا وَقَعَتِ الْوَاقِعَةُ",
+              "transliteration": "Itha waqaati al-waqiah",
+              "meaning": "when the Inevitable Event occurs",
+              "options": [
+                "when the Inevitable Event occurs",
+                "when the Coming Event arrives",
+                "when what must happen comes to pass",
+                "when the Event that must be comes"
+              ]
+            }
+          ]
+        },
+        {
+          "number": 2,
+          "arabic": "لَيْسَ لِوَقْعَتِهَا كَاذِبَةٌ",
+          "transliteration": "Laysa liwaqatiha kathibah",
+          "meaning": "There is no denial of its occurrence",
+          "words": [
+            {
+              "arabic": "لَيْسَ لِوَقْعَتِهَا كَاذِبَةٌ",
+              "transliteration": "Laysa liwaqatiha kathibah",
+              "meaning": "none can deny its occurrence",
+              "options": [
+                "none can deny its occurrence",
+                "its happening cannot be denied",
+                "there is no falsehood in its coming",
+                "no one can say it will not happen"
+              ]
+            }
+          ]
+        },
+        {
+          "number": 3,
+          "arabic": "خَافِضَةٌ رَّافِعَةٌ",
+          "transliteration": "Khafidatun rafi-ah",
+          "meaning": "It will lower some and raise others",
+          "words": [
+            {
+              "arabic": "خَافِضَةٌ",
+              "transliteration": "Khafidatun",
+              "meaning": "bringing low some",
+              "options": [
+                "bringing low some",
+                "humbling some",
+                "lowering certain ones",
+                "abasing some"
+              ]
+            },
+            {
+              "arabic": "رَّافِعَةٌ",
+              "transliteration": "rafi-ah",
+              "meaning": "and elevating others",
+              "options": [
+                "and elevating others",
+                "and raising certain ones",
+                "and exalting some",
+                "and lifting others high"
+              ]
+            }
+          ]
+        },
+        {
+          "number": 7,
+          "arabic": "وَكُنتُمْ أَزْوَاجًا ثَلَاثَةً",
+          "transliteration": "Wakuntum azwajan thalathah",
+          "meaning": "And you will be three kinds",
+          "words": [
+            {
+              "arabic": "وَكُنتُمْ أَزْوَاجًا ثَلَاثَةً",
+              "transliteration": "Wakuntum azwajan thalathah",
+              "meaning": "and you will be three groups",
+              "options": [
+                "and you will be three groups",
+                "and people will be three categories",
+                "and you shall be sorted into three",
+                "and you will be divided into three kinds"
+              ]
+            }
+          ]
+        },
+        {
+          "number": 10,
+          "arabic": "وَالسَّابِقُونَ السَّابِقُونَ",
+          "transliteration": "Was-sabiqoona as-sabiqoon",
+          "meaning": "And the foremost are the foremost",
+          "words": [
+            {
+              "arabic": "وَالسَّابِقُونَ السَّابِقُونَ",
+              "transliteration": "Was-sabiqoona as-sabiqoon",
+              "meaning": "and those who were foremost will be foremost",
+              "options": [
+                "and those who were foremost will be foremost",
+                "and the leaders will lead even then",
+                "and the racers in good will be ahead",
+                "and those who excelled will be foremost"
+              ]
+            }
+          ]
+        },
+        {
+          "number": 11,
+          "arabic": "أُولَئِكَ الْمُقَرَّبُونَ",
+          "transliteration": "Olaika al-muqarraboon",
+          "meaning": "Those are the ones brought near to Allah",
+          "words": [
+            {
+              "arabic": "أُولَئِكَ الْمُقَرَّبُونَ",
+              "transliteration": "Olaika al-muqarraboon",
+              "meaning": "those are the ones brought near",
+              "options": [
+                "those are the ones brought near",
+                "they are the ones close to Allah",
+                "those are the nearest ones",
+                "they are the ones drawn close"
+              ]
+            }
+          ]
+        },
+        {
+          "number": 77,
+          "arabic": "إِنَّهُ لَقُرْآنٌ كَرِيمٌ",
+          "transliteration": "Innahu laqur-anun kareem",
+          "meaning": "Indeed, it is a noble Quran",
+          "words": [
+            {
+              "arabic": "إِنَّهُ لَقُرْآنٌ كَرِيمٌ",
+              "transliteration": "Innahu laqur-anun kareem",
+              "meaning": "indeed it is a noble Quran",
+              "options": [
+                "indeed it is a noble Quran",
+                "truly this is an honorable Quran",
+                "verily this is a generous Quran",
+                "it is indeed a precious Quran"
+              ]
+            }
+          ]
+        },
+        {
+          "number": 78,
+          "arabic": "فِي كِتَابٍ مَّكْنُونٍ",
+          "transliteration": "Fee kitabin maknoon",
+          "meaning": "In a Book well-protected",
+          "words": [
+            {
+              "arabic": "فِي كِتَابٍ مَّكْنُونٍ",
+              "transliteration": "Fee kitabin maknoon",
+              "meaning": "in a well-guarded Book",
+              "options": [
+                "in a well-guarded Book",
+                "in a protected record",
+                "in a concealed Book",
+                "in a secure and hidden Book"
+              ]
+            }
+          ]
+        },
+        {
+          "number": 96,
+          "arabic": "فَسَبِّحْ بِاسْمِ رَبِّكَ الْعَظِيمِ",
+          "transliteration": "Fasabbih bismi rabbika al-atheem",
+          "meaning": "So exalt the name of your Lord, the Most Great",
+          "words": [
+            {
+              "arabic": "فَسَبِّحْ بِاسْمِ رَبِّكَ الْعَظِيمِ",
+              "transliteration": "Fasabbih bismi rabbika al-atheem",
+              "meaning": "so glorify the name of your Lord, the Most Great",
+              "options": [
+                "so glorify the name of your Lord, the Most Great",
+                "so praise your Great Lord's name",
+                "so exalt your Lord the Magnificent",
+                "so celebrate the name of your Almighty Lord"
+              ]
+            }
+          ]
+        }
+      ]
     },
     {
       "number": 57,
@@ -1093,7 +1613,137 @@
       "nameEnglish": "Al-Qalam",
       "nameMeaning": "The Pen",
       "totalAyahs": 52,
-      "hasData": false
+      "hasData": true,
+      "ayahs": [
+        {
+          "number": 1,
+          "arabic": "ن وَالْقَلَمِ وَمَا يَسْطُرُونَ",
+          "transliteration": "Noon wal-qalami wama yasturoona",
+          "meaning": "Nun. By the pen and what they write",
+          "words": [
+            {
+              "arabic": "وَالْقَلَمِ",
+              "transliteration": "wal-qalami",
+              "meaning": "by the pen",
+              "options": [
+                "by the pen",
+                "by the writing instrument",
+                "by the quill",
+                "by that which writes"
+              ]
+            },
+            {
+              "arabic": "وَمَا يَسْطُرُونَ",
+              "transliteration": "wama yasturoona",
+              "meaning": "and what they write",
+              "options": [
+                "and what they write",
+                "and all they inscribe",
+                "and what is recorded",
+                "and whatever they put down"
+              ]
+            }
+          ]
+        },
+        {
+          "number": 2,
+          "arabic": "مَا أَنتَ بِنِعْمَةِ رَبِّكَ بِمَجْنُونٍ",
+          "transliteration": "Ma anta bini-mati rabbika bimajnoon",
+          "meaning": "You are not, by the favor of your Lord, a madman",
+          "words": [
+            {
+              "arabic": "مَا أَنتَ بِنِعْمَةِ رَبِّكَ بِمَجْنُونٍ",
+              "transliteration": "Ma anta bini-mati rabbika bimajnoon",
+              "meaning": "by your Lord's favor you are not mad",
+              "options": [
+                "by your Lord's favor you are not mad",
+                "you are not insane by your Lord's grace",
+                "Allah has not made you mad",
+                "through your Lord's blessing you are not a madman"
+              ]
+            }
+          ]
+        },
+        {
+          "number": 4,
+          "arabic": "وَإِنَّكَ لَعَلَى خُلُقٍ عَظِيمٍ",
+          "transliteration": "Wa-innaka laala khuluqin atheem",
+          "meaning": "And indeed, you are of a great moral character",
+          "words": [
+            {
+              "arabic": "وَإِنَّكَ لَعَلَى خُلُقٍ عَظِيمٍ",
+              "transliteration": "Wa-innaka laala khuluqin atheem",
+              "meaning": "and you are truly of great character",
+              "options": [
+                "and you are truly of great character",
+                "and indeed you possess sublime morals",
+                "and you stand upon a tremendous character",
+                "and you are certainly of excellent conduct"
+              ]
+            }
+          ]
+        },
+        {
+          "number": 51,
+          "arabic": "وَإِن يَكَادُ الَّذِينَ كَفَرُوا لَيُزْلِقُونَكَ بِأَبْصَارِهِمْ لَمَّا سَمِعُوا الذِّكْرَ وَيَقُولُونَ إِنَّهُ لَمَجْنُونٌ",
+          "transliteration": "Wa-in yakadu allatheena kafaru layuzliqoonaka bi-absarihim lamma samiu ath-thikra wayaqooloona innahu lamajnoon",
+          "meaning": "And indeed, those who disbelieve would almost make you slip with their eyes when they hear the reminder, and they say, 'Indeed, he is mad'",
+          "words": [
+            {
+              "arabic": "لَيُزْلِقُونَكَ بِأَبْصَارِهِمْ",
+              "transliteration": "layuzliqoonaka bi-absarihim",
+              "meaning": "they would make you slip with their eyes",
+              "options": [
+                "they would make you slip with their eyes",
+                "they stare at you with hatred",
+                "they try to harm you with their glares",
+                "they fix you with an evil eye"
+              ]
+            },
+            {
+              "arabic": "وَيَقُولُونَ إِنَّهُ لَمَجْنُونٌ",
+              "transliteration": "wayaqooloona innahu lamajnoon",
+              "meaning": "and they say indeed he is mad",
+              "options": [
+                "and they say indeed he is mad",
+                "and they claim he is insane",
+                "and they call him a madman",
+                "and they declare he is crazy"
+              ]
+            }
+          ]
+        },
+        {
+          "number": 52,
+          "arabic": "وَمَا هُوَ إِلَّا ذِكْرٌ لِّلْعَالَمِينَ",
+          "transliteration": "Wama huwa illa thikrun lil-aalameen",
+          "meaning": "But it is not except a reminder to the worlds",
+          "words": [
+            {
+              "arabic": "وَمَا هُوَ إِلَّا ذِكْرٌ",
+              "transliteration": "Wama huwa illa thikrun",
+              "meaning": "but it is only a reminder",
+              "options": [
+                "but it is only a reminder",
+                "and it is nothing but an admonition",
+                "it is simply a message",
+                "it is merely a remembrance"
+              ]
+            },
+            {
+              "arabic": "لِّلْعَالَمِينَ",
+              "transliteration": "lil-aalameen",
+              "meaning": "for all the worlds",
+              "options": [
+                "for all the worlds",
+                "for all of mankind",
+                "for the entire creation",
+                "for all beings"
+              ]
+            }
+          ]
+        }
+      ]
     },
     {
       "number": 69,
@@ -1101,7 +1751,145 @@
       "nameEnglish": "Al-Haqqah",
       "nameMeaning": "The Reality",
       "totalAyahs": 52,
-      "hasData": false
+      "hasData": true,
+      "ayahs": [
+        {
+          "number": 1,
+          "arabic": "الْحَاقَّةُ",
+          "transliteration": "Al-haqqah",
+          "meaning": "The Inevitable Reality",
+          "words": [
+            {
+              "arabic": "الْحَاقَّةُ",
+              "transliteration": "Al-haqqah",
+              "meaning": "the Inevitable Reality",
+              "options": [
+                "the Inevitable Reality",
+                "the Sure Truth",
+                "the Day that must come",
+                "the Unavoidable Event"
+              ]
+            }
+          ]
+        },
+        {
+          "number": 2,
+          "arabic": "مَا الْحَاقَّةُ",
+          "transliteration": "Ma al-haqqah",
+          "meaning": "What is the Inevitable Reality?",
+          "words": [
+            {
+              "arabic": "مَا الْحَاقَّةُ",
+              "transliteration": "Ma al-haqqah",
+              "meaning": "what is the Inevitable Reality",
+              "options": [
+                "what is the Inevitable Reality",
+                "what is the Sure Truth",
+                "what is this certain event",
+                "what is the unavoidable happening"
+              ]
+            }
+          ]
+        },
+        {
+          "number": 3,
+          "arabic": "وَمَا أَدْرَاكَ مَا الْحَاقَّةُ",
+          "transliteration": "Wama adraka ma al-haqqah",
+          "meaning": "And what can make you know what is the Inevitable Reality?",
+          "words": [
+            {
+              "arabic": "وَمَا أَدْرَاكَ مَا الْحَاقَّةُ",
+              "transliteration": "Wama adraka ma al-haqqah",
+              "meaning": "and what will make you know what it is",
+              "options": [
+                "and what will make you know what it is",
+                "and who can tell you what it is",
+                "and what understanding do you have of it",
+                "and what has informed you of the Inevitable"
+              ]
+            }
+          ]
+        },
+        {
+          "number": 40,
+          "arabic": "إِنَّهُ لَقَوْلُ رَسُولٍ كَرِيمٍ",
+          "transliteration": "Innahu laqawlu rasoolin kareem",
+          "meaning": "Indeed, it is the word of a noble Messenger",
+          "words": [
+            {
+              "arabic": "إِنَّهُ لَقَوْلُ رَسُولٍ كَرِيمٍ",
+              "transliteration": "Innahu laqawlu rasoolin kareem",
+              "meaning": "it is the word of a noble messenger",
+              "options": [
+                "it is the word of a noble messenger",
+                "this is speech from an honored prophet",
+                "it comes from a dignified messenger",
+                "it is the statement of a respected messenger"
+              ]
+            }
+          ]
+        },
+        {
+          "number": 44,
+          "arabic": "وَلَوْ تَقَوَّلَ عَلَيْنَا بَعْضَ الْأَقَاوِيلِ",
+          "transliteration": "Walaw taqawwala alayna bada al-aqaweel",
+          "meaning": "And if he had made up concerning Us some sayings",
+          "words": [
+            {
+              "arabic": "وَلَوْ تَقَوَّلَ عَلَيْنَا",
+              "transliteration": "Walaw taqawwala alayna",
+              "meaning": "if he had falsely attributed to Us",
+              "options": [
+                "if he had falsely attributed to Us",
+                "had he invented words against Us",
+                "if he had fabricated on Our behalf",
+                "had he made up things about Us"
+              ]
+            },
+            {
+              "arabic": "بَعْضَ الْأَقَاوِيلِ",
+              "transliteration": "bada al-aqaweel",
+              "meaning": "some of the sayings",
+              "options": [
+                "some of the sayings",
+                "any false words",
+                "invented statements",
+                "some fabricated sayings"
+              ]
+            }
+          ]
+        },
+        {
+          "number": 52,
+          "arabic": "فَسَبِّحْ بِاسْمِ رَبِّكَ الْعَظِيمِ",
+          "transliteration": "Fasabbih bismi rabbika al-atheem",
+          "meaning": "So exalt the name of your Lord, the Most Great",
+          "words": [
+            {
+              "arabic": "فَسَبِّحْ",
+              "transliteration": "Fasabbih",
+              "meaning": "so exalt/glorify",
+              "options": [
+                "so exalt/glorify",
+                "so praise",
+                "so celebrate",
+                "so honor"
+              ]
+            },
+            {
+              "arabic": "بِاسْمِ رَبِّكَ الْعَظِيمِ",
+              "transliteration": "bismi rabbika al-atheem",
+              "meaning": "the name of your Lord, the Most Great",
+              "options": [
+                "the name of your Lord, the Most Great",
+                "the glory of your Magnificent Lord",
+                "your Lord's name, the All-Mighty",
+                "the name of your Great Creator"
+              ]
+            }
+          ]
+        }
+      ]
     },
     {
       "number": 70,
@@ -1109,7 +1897,126 @@
       "nameEnglish": "Al-Ma'arij",
       "nameMeaning": "The Ascending Stairways",
       "totalAyahs": 44,
-      "hasData": false
+      "hasData": true,
+      "ayahs": [
+        {
+          "number": 1,
+          "arabic": "سَأَلَ سَائِلٌ بِعَذَابٍ وَاقِعٍ",
+          "transliteration": "Sa-ala sa-ilun bi-athabin waqi",
+          "meaning": "A questioner asked about a punishment bound to happen",
+          "words": [
+            {
+              "arabic": "سَأَلَ سَائِلٌ",
+              "transliteration": "Sa-ala sa-ilun",
+              "meaning": "a questioner asked",
+              "options": [
+                "a questioner asked",
+                "someone demanded",
+                "an asker inquired",
+                "a man sought"
+              ]
+            },
+            {
+              "arabic": "بِعَذَابٍ وَاقِعٍ",
+              "transliteration": "bi-athabin waqi",
+              "meaning": "about a punishment that will befall",
+              "options": [
+                "about a punishment that will befall",
+                "for a torment that is inevitable",
+                "concerning a punishment that must come",
+                "about a chastisement that will happen"
+              ]
+            }
+          ]
+        },
+        {
+          "number": 4,
+          "arabic": "تَعْرُجُ الْمَلَائِكَةُ وَالرُّوحُ إِلَيْهِ فِي يَوْمٍ كَانَ مِقْدَارُهُ خَمْسِينَ أَلْفَ سَنَةٍ",
+          "transliteration": "Ta-ruju al-mala-ikatu war-roohu ilayhi fee yawmin kana miqdaruhu khamseen alfa sanah",
+          "meaning": "The angels and the Spirit will ascend to Him during a Day the extent of which is fifty thousand years",
+          "words": [
+            {
+              "arabic": "تَعْرُجُ الْمَلَائِكَةُ وَالرُّوحُ إِلَيْهِ",
+              "transliteration": "Ta-ruju al-mala-ikatu war-roohu ilayhi",
+              "meaning": "the angels and the Spirit ascend to Him",
+              "options": [
+                "the angels and the Spirit ascend to Him",
+                "the angels and Jibril rise to Him",
+                "the angels and the holy spirit ascend",
+                "angels and the Spirit rise toward Him"
+              ]
+            },
+            {
+              "arabic": "خَمْسِينَ أَلْفَ سَنَةٍ",
+              "transliteration": "khamseen alfa sanah",
+              "meaning": "fifty thousand years",
+              "options": [
+                "fifty thousand years",
+                "fifty thousand solar years",
+                "a span of fifty thousand years",
+                "fifty thousand of our years"
+              ]
+            }
+          ]
+        },
+        {
+          "number": 19,
+          "arabic": "إِنَّ الْإِنسَانَ خُلِقَ هَلُوعًا",
+          "transliteration": "Inna al-insana khuliqa halooaan",
+          "meaning": "Indeed, mankind was created anxious",
+          "words": [
+            {
+              "arabic": "إِنَّ الْإِنسَانَ خُلِقَ هَلُوعًا",
+              "transliteration": "Inna al-insana khuliqa halooaan",
+              "meaning": "indeed man was created impatient/anxious",
+              "options": [
+                "indeed man was created impatient/anxious",
+                "truly the human was made greedy",
+                "man has been created restless",
+                "indeed humanity is created with anxiety"
+              ]
+            }
+          ]
+        },
+        {
+          "number": 22,
+          "arabic": "إِلَّا الْمُصَلِّينَ",
+          "transliteration": "Illa al-musalleen",
+          "meaning": "Except the observers of prayer",
+          "words": [
+            {
+              "arabic": "إِلَّا الْمُصَلِّينَ",
+              "transliteration": "Illa al-musalleen",
+              "meaning": "except those who pray",
+              "options": [
+                "except those who pray",
+                "save the ones who establish prayer",
+                "but those who perform salah",
+                "other than those devoted to prayer"
+              ]
+            }
+          ]
+        },
+        {
+          "number": 23,
+          "arabic": "الَّذِينَ هُمْ عَلَى صَلَاتِهِمْ دَائِمُونَ",
+          "transliteration": "Allatheena hum ala salatihim daa-imoon",
+          "meaning": "Who are constant in their prayer",
+          "words": [
+            {
+              "arabic": "الَّذِينَ هُمْ عَلَى صَلَاتِهِمْ دَائِمُونَ",
+              "transliteration": "Allatheena hum ala salatihim daa-imoon",
+              "meaning": "those who are regular in their prayers",
+              "options": [
+                "those who are regular in their prayers",
+                "those who maintain their salah consistently",
+                "those who never miss their prayers",
+                "those who are persistent in prayer"
+              ]
+            }
+          ]
+        }
+      ]
     },
     {
       "number": 71,
