@@ -16,11 +16,15 @@
 // 'const' = constant, cannot be reassigned
 let currentAyahIndex = 0;   // Which ayah we're on (starts at 0)
 let currentWordIndex = 0;   // Which word within the ayah (for MCQ mode)
-let surahData = null;       // Will hold our loaded data
+let surahData = null;       // Will hold the currently selected surah's data
+let allSurahsData = null;   // Will hold all 114 surah metadata
 let audio = null;           // Will hold the audio player
 let isMcqMode = false;      // Track which mode we're in
 let mcqAnswered = false;    // Whether the current MCQ word has been answered
 let isMuted = false;        // Whether autoplay is muted
+
+// Badge color palette — cycles through surahs
+const BADGE_COLORS = ['#58cc02','#1cb0f6','#ff9600','#ff4b4b','#ce82ff','#ffc800','#2dbfcd'];
 
 // ============================================
 // DOM ELEMENTS - getting references to HTML
@@ -60,16 +64,102 @@ const muteBtn = document.getElementById('mute-btn');
 // ============================================
 
 /*
-  Function to load the surah data from our JSON file.
+  INITIALIZATION: Load all surah data and show home page.
   'async' means this function can wait for things (like file loading).
 */
-async function loadSurahData() {
+async function init() {
   const response = await fetch('data/surahs.json');
   const data = await response.json();
-  surahData = data.surahs[0];
-  
+  allSurahsData = data.surahs;
+  renderSurahList(allSurahsData);
+}
+
+/*
+  RENDER SURAH LIST
+  Creates a card for each of the 114 surahs on the home page.
+*/
+function renderSurahList(surahs) {
+  const list = document.getElementById('surah-list');
+  list.innerHTML = '';
+
+  surahs.forEach((surah, index) => {
+    const card = document.createElement('div');
+    card.className = 'surah-card' + (surah.hasData ? '' : ' locked');
+
+    card.innerHTML = `
+      <div class="surah-number-badge">${surah.number}</div>
+      <div class="surah-info">
+        <div class="surah-name-english">${surah.nameEnglish}</div>
+        <div class="surah-ayah-count">${surah.totalAyahs} ayahs · ${surah.nameMeaning}</div>
+      </div>
+      <div class="surah-chevron">${surah.hasData ? '›' : '🔒'}</div>
+    `;
+
+    if (surah.hasData) {
+      card.addEventListener('click', () => selectSurah(index));
+    } else {
+      // Brief yellow flash to indicate "coming soon"
+      card.addEventListener('click', () => {
+        card.style.borderColor = '#ffc800';
+        card.style.boxShadow = '0 2px 0 #ffc800';
+        setTimeout(() => {
+          card.style.borderColor = '';
+          card.style.boxShadow = '';
+        }, 400);
+      });
+    }
+
+    list.appendChild(card);
+  });
+}
+
+/*
+  SELECT SURAH
+  Called when a user taps a playable surah card.
+  Loads its data, resets state, and shows the study view.
+*/
+function selectSurah(index) {
+  surahData = allSurahsData[index];
+
+  // Reset state for fresh study session
+  currentAyahIndex = 0;
+  currentWordIndex = 0;
+  mcqAnswered = false;
+  isMcqMode = false;
+
+  // Reset mode tabs visually
+  tabFlashcard.classList.add('active');
+  tabMcq.classList.remove('active');
+  flashcardView.classList.remove('hidden');
+  mcqView.classList.add('hidden');
+  mcqAnswers.classList.add('hidden');
+  playAudioBtn.classList.remove('hidden');
+
+  // Update surah name label
+  document.getElementById('surah-name').textContent = surahData.nameEnglish;
+
+  // Update total ayah count
   totalAyahsSpan.textContent = surahData.ayahs.length;
+
+  // Switch views
+  document.getElementById('home-view').classList.add('hidden');
+  document.getElementById('study-view').classList.remove('hidden');
+
   displayCurrentContent();
+}
+
+/*
+  GO HOME
+  Returns user to the home page and stops any audio.
+*/
+function goHome() {
+  if (audio) {
+    audio.pause();
+    audio = null;
+  }
+
+  document.getElementById('study-view').classList.add('hidden');
+  document.getElementById('home-view').classList.remove('hidden');
 }
 
 /*
@@ -87,6 +177,17 @@ function displayCurrentContent(autoplay = true) {
   }
   updateProgress();
   updateButtons();
+  updateProgressBar();
+}
+
+/*
+  UPDATE PROGRESS BAR
+  Fills the topbar progress bar based on current ayah position.
+*/
+function updateProgressBar() {
+  const total = surahData.ayahs.length;
+  const pct = total <= 1 ? 100 : (currentAyahIndex / (total - 1)) * 100;
+  document.getElementById('progress-bar-fill').style.width = pct + '%';
 }
 
 /*
@@ -433,12 +534,15 @@ document.addEventListener('keydown', function(event) {
   }
 });
 
+// Back button — return to home
+document.getElementById('back-btn').addEventListener('click', goHome);
+
 // ============================================
 // INITIALIZATION - start the app
 // ============================================
 
-// Load the data when the page loads
-loadSurahData();
+// Load the data when the page loads, show home page
+init();
 
 // Register service worker for PWA (offline support)
 if ('serviceWorker' in navigator) {

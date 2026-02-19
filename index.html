@@ -2,107 +2,100 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <!-- Makes the app scale properly on phones -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
-  <!-- PWA: Tells browsers this can be installed as an app -->
   <link rel="manifest" href="manifest.json">
-  <meta name="theme-color" content="#1a5f4a">
-  
+  <meta name="theme-color" content="#58cc02">
   <title>Quran Flashcards</title>
-
-  <!-- Nunito: closest free font to Duolingo's rounded typeface -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@700;800;900&display=swap" rel="stylesheet">
-
-  <!-- Link to our CSS file for styling -->
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <!-- 
-    HTML uses "tags" to create elements.
-    <div> is a container (like a box).
-    id="..." gives it a unique name so JavaScript can find it.
-    class="..." lets CSS style multiple elements the same way.
-  -->
-  
-  <div class="app">
-    <!-- Header section -->
-    <header>
+
+  <!-- ===== HOME VIEW ===== -->
+  <div id="home-view">
+    <header class="home-header">
       <h1>Quran Flashcards</h1>
-      <p id="surah-name">Surah Al-Fatiha</p>
-      <button id="mute-btn" class="mute-btn" title="Toggle autoplay">🔊</button>
     </header>
+    <main class="home-main">
+      <h2 class="home-subtitle">Pick any Surah to learn</h2>
+      <div class="surah-list" id="surah-list">
+        <!-- Surah cards injected by JavaScript -->
+      </div>
+    </main>
+  </div>
 
-    <!-- 
-      MODE TOGGLE
-      A toggle switch lets users pick between two options.
-      We use a hidden checkbox + styled label for a nice UI.
-    -->
-    <div class="mode-tabs">
-      <button class="tab-btn active" id="tab-flashcard">Flashcard</button>
-      <button class="tab-btn" id="tab-mcq">MCQ</button>
+  <!-- ===== STUDY VIEW ===== -->
+  <div id="study-view" class="hidden">
+
+    <!-- Duolingo-style top bar: back button + progress bar + mute -->
+    <div class="study-topbar">
+      <button id="back-btn" class="back-btn" title="Back to home">✕</button>
+      <div class="progress-bar-track">
+        <div class="progress-bar-fill" id="progress-bar-fill"></div>
+      </div>
+      <button id="mute-btn" class="mute-btn" title="Toggle autoplay">🔊</button>
     </div>
 
-    <!-- Progress indicator -->
-    <div class="progress">
-      Ayah <span id="current-ayah">1</span>/<span id="total-ayahs">7</span>
-      <span id="word-progress"></span>
-    </div>
+    <!-- Study content -->
+    <div class="app">
+      <p class="study-surah-name" id="surah-name"></p>
 
-    <!-- FLASHCARD MODE VIEW -->
-    <div id="flashcard-view">
-      <div class="card-container">
-        <div class="card" id="flashcard">
-          <!-- Front of card: Arabic text -->
-          <div class="card-front">
-            <p class="arabic" id="arabic-text"></p>
-            <p class="hint">Tap to reveal meaning</p>
-          </div>
-          
-          <!-- Back of card: Translation -->
-          <div class="card-back">
-            <p class="transliteration" id="transliteration"></p>
-            <p class="meaning" id="meaning"></p>
+      <div class="mode-tabs">
+        <button class="tab-btn active" id="tab-flashcard">Flashcard</button>
+        <button class="tab-btn" id="tab-mcq">MCQ</button>
+      </div>
+
+      <div class="progress">
+        Ayah <span id="current-ayah">1</span>/<span id="total-ayahs">7</span>
+        <span id="word-progress"></span>
+      </div>
+
+      <!-- FLASHCARD MODE VIEW -->
+      <div id="flashcard-view">
+        <div class="card-container">
+          <div class="card" id="flashcard">
+            <div class="card-front">
+              <p class="arabic" id="arabic-text"></p>
+              <p class="hint">Tap to reveal meaning</p>
+            </div>
+            <div class="card-back">
+              <p class="transliteration" id="transliteration"></p>
+              <p class="meaning" id="meaning"></p>
+            </div>
           </div>
         </div>
       </div>
-    </div>
 
-    <!--
-      MCQ MODE VIEW
-      Shows one word at a time. Card styled like flashcard.
-      'hidden' class hides this by default.
-    -->
-    <div id="mcq-view" class="hidden">
-      <div class="mcq-card">
-        <!-- The Arabic word being tested -->
-        <p class="arabic" id="mcq-arabic"></p>
-        <p class="transliteration" id="mcq-transliteration"></p>
+      <!-- MCQ MODE VIEW -->
+      <div id="mcq-view" class="hidden">
+        <div class="mcq-card">
+          <p class="arabic" id="mcq-arabic"></p>
+          <p class="transliteration" id="mcq-transliteration"></p>
+        </div>
       </div>
-    </div>
 
-    <!-- Audio play button -->
-    <button class="audio-btn" id="play-audio">
-      🔊 Play Recitation
-    </button>
+      <!-- Audio play button -->
+      <button class="audio-btn" id="play-audio">
+        🔊 Play Recitation
+      </button>
 
-    <!-- MCQ answer options — outside the card, below audio, above nav -->
-    <div id="mcq-answers" class="hidden">
-      <p id="mcq-feedback" class="feedback"></p>
-      <div class="mcq-options" id="mcq-options">
-        <!-- Options will be inserted by JavaScript -->
+      <!-- MCQ answer options — outside the card, below audio, above nav -->
+      <div id="mcq-answers" class="hidden">
+        <p id="mcq-feedback" class="feedback"></p>
+        <div class="mcq-options" id="mcq-options">
+          <!-- Options injected by JavaScript -->
+        </div>
       </div>
-    </div>
 
-    <!-- Navigation buttons -->
-    <div class="nav-buttons">
-      <button id="prev-btn">← Previous</button>
-      <button id="next-btn">Next →</button>
+      <!-- Navigation buttons -->
+      <div class="nav-buttons">
+        <button id="prev-btn">← Previous</button>
+        <button id="next-btn">Next →</button>
+      </div>
     </div>
   </div>
 
-  <!-- Load our JavaScript at the end (so HTML loads first) -->
   <script src="app.js"></script>
 </body>
 </html>
