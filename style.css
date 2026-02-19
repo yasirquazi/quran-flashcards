@@ -173,12 +173,12 @@ body {
 }
 
 .back-btn {
-  width: 36px;
-  height: 36px;
+  width: 40px;
+  height: 40px;
   border-radius: 50%;
   border: none;
   background: transparent;
-  font-size: 1.1rem;
+  font-size: 1.4rem;
   color: #afafaf;
   cursor: pointer;
   flex-shrink: 0;
