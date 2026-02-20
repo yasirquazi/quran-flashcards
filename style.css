@@ -72,6 +72,46 @@ body {
   margin-bottom: 24px;
 }
 
+/* ============================================
+   HOME FILTER TABS
+============================================ */
+
+.home-tabs {
+  display: flex;
+  background: #e5e5e5;
+  border-radius: 100px;
+  padding: 4px;
+  gap: 4px;
+  margin-bottom: 20px;
+  align-self: center;
+}
+
+.home-tab-btn {
+  padding: 8px 22px;
+  border-radius: 100px;
+  border: none;
+  background: transparent;
+  color: #afafaf;
+  font-size: 0.85rem;
+  font-weight: 800;
+  text-transform: none;
+  letter-spacing: 0;
+  box-shadow: none;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.home-tab-btn.active {
+  background: #ffffff;
+  color: #3c3c3c;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.12);
+}
+
+.home-tab-btn:active:not(:disabled) {
+  transform: none;
+  box-shadow: none !important;
+}
+
 .surah-list {
   display: flex;
   flex-direction: column;

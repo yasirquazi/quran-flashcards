@@ -22,6 +22,7 @@ let audio = null;           // Will hold the audio player
 let isMcqMode = false;      // Track which mode we're in
 let mcqAnswered = false;    // Whether the current MCQ word has been answered
 let isMuted = false;        // Whether autoplay is muted
+let activeHomeTab = 'all';  // Active home filter tab: 'all' | 'short' | 'long'
 
 // Badge color palette — cycles through surahs
 const BADGE_COLORS = ['#58cc02','#1cb0f6','#ff9600','#ff4b4b','#ce82ff','#ffc800','#2dbfcd'];
@@ -71,7 +72,32 @@ async function init() {
   const response = await fetch('data/surahs.json');
   const data = await response.json();
   allSurahsData = data.surahs;
-  renderSurahList(allSurahsData);
+
+  // Wire up home filter tabs
+  document.querySelectorAll('.home-tab-btn').forEach(btn => {
+    btn.addEventListener('click', () => setHomeTab(btn.dataset.filter));
+  });
+
+  renderSurahList(getFilteredSurahs());
+}
+
+/*
+  HOME TAB FILTERING
+  Short = ≤ 50 ayahs (covers Juz Amma and commonly memorised surahs)
+  Long  = > 50 ayahs
+*/
+function getFilteredSurahs() {
+  if (activeHomeTab === 'short') return allSurahsData.filter(s => s.totalAyahs <= 50);
+  if (activeHomeTab === 'long')  return allSurahsData.filter(s => s.totalAyahs > 50);
+  return allSurahsData;
+}
+
+function setHomeTab(tab) {
+  activeHomeTab = tab;
+  document.querySelectorAll('.home-tab-btn').forEach(btn => {
+    btn.classList.toggle('active', btn.dataset.filter === tab);
+  });
+  renderSurahList(getFilteredSurahs());
 }
 
 /*
@@ -82,7 +108,7 @@ function renderSurahList(surahs) {
   const list = document.getElementById('surah-list');
   list.innerHTML = '';
 
-  surahs.forEach((surah, index) => {
+  surahs.forEach((surah) => {
     const card = document.createElement('div');
     card.className = 'surah-card' + (surah.hasData ? '' : ' locked');
 
@@ -96,7 +122,7 @@ function renderSurahList(surahs) {
     `;
 
     if (surah.hasData) {
-      card.addEventListener('click', () => selectSurah(index));
+      card.addEventListener('click', () => selectSurah(surah.number));
     } else {
       // Brief yellow flash to indicate "coming soon"
       card.addEventListener('click', () => {
@@ -118,8 +144,8 @@ function renderSurahList(surahs) {
   Called when a user taps a playable surah card.
   Loads its data, resets state, and shows the study view.
 */
-function selectSurah(index) {
-  surahData = allSurahsData[index];
+function selectSurah(surahNumber) {
+  surahData = allSurahsData.find(s => s.number === surahNumber);
 
   // Reset state for fresh study session
   currentAyahIndex = 0;
