@@ -24,9 +24,6 @@ let mcqAnswered = false;    // Whether the current MCQ word has been answered
 let isMuted = false;        // Whether autoplay is muted
 let activeHomeTab = 'all';  // Active home filter tab: 'all' | 'short' | 'long'
 
-// Badge color palette — cycles through surahs
-const BADGE_COLORS = ['#58cc02','#1cb0f6','#ff9600','#ff4b4b','#ce82ff','#ffc800','#2dbfcd'];
-
 // ============================================
 // DOM ELEMENTS - getting references to HTML
 // ============================================
@@ -108,7 +105,9 @@ function renderSurahList(surahs) {
   const list = document.getElementById('surah-list');
   list.innerHTML = '';
 
-  surahs.forEach((surah) => {
+  const sorted = [...surahs].sort((a, b) => (b.hasData ? 1 : 0) - (a.hasData ? 1 : 0));
+
+  sorted.forEach((surah) => {
     const card = document.createElement('div');
     card.className = 'surah-card' + (surah.hasData ? '' : ' locked');
 

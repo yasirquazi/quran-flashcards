@@ -83,11 +83,12 @@ body {
   padding: 4px;
   gap: 4px;
   margin-bottom: 20px;
-  align-self: center;
+  width: 100%;
 }
 
 .home-tab-btn {
-  padding: 8px 22px;
+  flex: 1;
+  padding: 8px 0;
   border-radius: 100px;
   border: none;
   background: transparent;
@@ -98,6 +99,7 @@ body {
   letter-spacing: 0;
   box-shadow: none;
   cursor: pointer;
+  text-align: center;
   transition: all 0.2s;
 }
 
@@ -315,10 +317,12 @@ body {
   padding: 4px;
   gap: 4px;
   margin: 20px 0 16px;
+  width: 100%;
 }
 
 .tab-btn {
-  padding: 10px 24px;
+  flex: 1;
+  padding: 10px 0;
   border-radius: 100px;
   border: none;
   background: transparent;
@@ -329,6 +333,7 @@ body {
   letter-spacing: 0;
   box-shadow: none;
   cursor: pointer;
+  text-align: center;
   transition: all 0.2s;
 }
 
