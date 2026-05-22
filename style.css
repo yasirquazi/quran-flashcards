@@ -2,15 +2,15 @@
    DUOLINGO-INSPIRED DESIGN SYSTEM
    Key values:
    - Background: #ffffff
-   - Primary text: #3c3c3c
-   - Muted text: #afafaf
-   - Primary green: #58cc02
-   - Green shadow: #58a700
-   - Border: #e5e5e5
-   - Border shadow: #e5e5e5
-   - Correct bg: #d7ffb8
-   - Wrong bg: #ffdfe0
-   - Wrong red: #ff4b4b
+   - Primary text: #2C1810
+   - Muted text: #A8907A
+   - Primary green: #D05228
+   - Green shadow: #A33E1C
+   - Border: #E8DDD2
+   - Border shadow: #E8DDD2
+   - Correct bg: #EDF8DC
+   - Wrong bg: #FDEEE8
+   - Wrong red: #D05228
 ============================================ */
 
 * {
@@ -21,9 +21,9 @@
 
 body {
   font-family: 'Nunito', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-  background: #ffffff;
+  background: #FAF8F4;
   min-height: 100vh;
-  color: #3c3c3c;
+  color: #2C1810;
 }
 
 .app {
@@ -42,7 +42,7 @@ body {
 
 #home-view {
   min-height: 100vh;
-  background: #ffffff;
+  background: #FAF8F4;
 }
 
 .home-header {
@@ -54,7 +54,7 @@ body {
 .home-header h1 {
   font-size: 1.6rem;
   font-weight: 900;
-  color: #3c3c3c;
+  color: #2C1810;
   text-align: center;
 }
 
@@ -67,7 +67,7 @@ body {
 .home-subtitle {
   font-size: 1.2rem;
   font-weight: 800;
-  color: #3c3c3c;
+  color: #2C1810;
   text-align: center;
   margin-bottom: 24px;
 }
@@ -78,7 +78,7 @@ body {
 
 .home-tabs {
   display: flex;
-  background: #e5e5e5;
+  background: #E8DDD2;
   border-radius: 100px;
   padding: 4px;
   gap: 4px;
@@ -92,7 +92,7 @@ body {
   border-radius: 100px;
   border: none;
   background: transparent;
-  color: #afafaf;
+  color: #A8907A;
   font-size: 0.85rem;
   font-weight: 800;
   text-transform: none;
@@ -104,8 +104,8 @@ body {
 }
 
 .home-tab-btn.active {
-  background: #ffffff;
-  color: #3c3c3c;
+  background: #FAF8F4;
+  color: #2C1810;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.12);
 }
 
@@ -125,9 +125,9 @@ body {
   align-items: center;
   gap: 16px;
   padding: 14px 16px;
-  background: #ffffff;
-  border: 2px solid #e5e5e5;
-  box-shadow: 0 2px 0 #e5e5e5;
+  background: #FAF8F4;
+  border: 2px solid #E8DDD2;
+  box-shadow: 0 2px 0 #E8DDD2;
   border-radius: 16px;
   cursor: pointer;
   transition: all 0.15s;
@@ -135,8 +135,8 @@ body {
 }
 
 .surah-card:hover:not(.locked) {
-  border-color: #84d8ff;
-  box-shadow: 0 2px 0 #84d8ff;
+  border-color: #E8B48A;
+  box-shadow: 0 2px 0 #E8B48A;
 }
 
 .surah-card:active:not(.locked) {
@@ -153,13 +153,13 @@ body {
   width: 52px;
   height: 52px;
   border-radius: 12px;
-  background: #f0f0f0;
+  background: #EDE3D8;
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 1.1rem;
   font-weight: 900;
-  color: #afafaf;
+  color: #A8907A;
   flex-shrink: 0;
 }
 
@@ -171,13 +171,13 @@ body {
 .surah-name-english {
   font-size: 1rem;
   font-weight: 800;
-  color: #3c3c3c;
+  color: #2C1810;
 }
 
 .surah-name-arabic {
   font-size: 0.85rem;
   line-height: 1.3;
-  color: #afafaf;
+  color: #A8907A;
   font-family: 'Traditional Arabic', 'Scheherazade', serif;
   direction: rtl;
   margin-top: 2px;
@@ -185,7 +185,7 @@ body {
 
 .surah-ayah-count {
   font-size: 0.78rem;
-  color: #afafaf;
+  color: #A8907A;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.4px;
@@ -194,7 +194,7 @@ body {
 
 .surah-chevron {
   font-size: 1.6rem;
-  color: #afafaf;
+  color: #A8907A;
   font-weight: 800;
   flex-shrink: 0;
 }
@@ -221,7 +221,7 @@ body {
   border: none;
   background: transparent;
   font-size: 1.4rem;
-  color: #afafaf;
+  color: #A8907A;
   cursor: pointer;
   flex-shrink: 0;
   display: flex;
@@ -236,7 +236,7 @@ body {
 }
 
 .back-btn:hover {
-  color: #3c3c3c;
+  color: #2C1810;
 }
 
 .back-btn:active:not(:disabled) {
@@ -247,14 +247,14 @@ body {
 .progress-bar-track {
   flex: 1;
   height: 16px;
-  background: #e5e5e5;
+  background: #E8DDD2;
   border-radius: 8px;
   overflow: hidden;
 }
 
 .progress-bar-fill {
   height: 100%;
-  background: #58cc02;
+  background: #D05228;
   border-radius: 8px;
   width: 0%;
   transition: width 0.4s ease;
@@ -265,8 +265,8 @@ body {
   width: 36px;
   height: 36px;
   border-radius: 50%;
-  background: #f7f7f7;
-  border: 2px solid #e5e5e5;
+  background: #F4EBE2;
+  border: 2px solid #E8DDD2;
   box-shadow: none;
   font-size: 1rem;
   padding: 0;
@@ -282,7 +282,7 @@ body {
 }
 
 .mute-btn:hover {
-  background: #efefef;
+  background: #EDE0D4;
 }
 
 .mute-btn:active:not(:disabled) {
@@ -291,15 +291,15 @@ body {
 }
 
 .mute-btn.muted {
-  background: #ffdfe0;
-  border-color: #ff4b4b;
+  background: #FDEEE8;
+  border-color: #D05228;
 }
 
 /* Surah name shown inside study view */
 .study-surah-name {
   font-size: 0.85rem;
   font-weight: 700;
-  color: #afafaf;
+  color: #A8907A;
   text-transform: uppercase;
   letter-spacing: 0.5px;
   text-align: center;
@@ -312,7 +312,7 @@ body {
 
 .mode-tabs {
   display: flex;
-  background: #e5e5e5;
+  background: #E8DDD2;
   border-radius: 100px;
   padding: 4px;
   gap: 4px;
@@ -326,7 +326,7 @@ body {
   border-radius: 100px;
   border: none;
   background: transparent;
-  color: #afafaf;
+  color: #A8907A;
   font-size: 0.9rem;
   font-weight: 800;
   text-transform: none;
@@ -343,8 +343,8 @@ body {
 }
 
 .tab-btn.active {
-  background: #ffffff;
-  color: #3c3c3c;
+  background: #FAF8F4;
+  color: #2C1810;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.12);
 }
 
@@ -355,7 +355,7 @@ body {
 .progress {
   font-size: 0.8rem;
   font-weight: 800;
-  color: #afafaf;
+  color: #A8907A;
   margin-bottom: 24px;
   text-transform: uppercase;
   letter-spacing: 0.5px;
@@ -363,7 +363,7 @@ body {
 
 #word-progress {
   margin-left: 6px;
-  color: #58cc02;
+  color: #D05228;
 }
 
 /* ============================================
@@ -408,9 +408,9 @@ body {
   align-items: center;
   text-align: center;
   overflow: hidden;
-  background: #ffffff;
-  border: 2px solid #e5e5e5;
-  box-shadow: 0 4px 0 #e5e5e5;
+  background: #FAF8F4;
+  border: 2px solid #E8DDD2;
+  box-shadow: 0 4px 0 #E8DDD2;
 }
 
 .card-back {
@@ -426,14 +426,14 @@ body {
   line-height: 1.8;
   font-family: 'Traditional Arabic', 'Scheherazade', serif;
   direction: rtl;
-  color: #3c3c3c;
+  color: #2C1810;
   font-weight: 700;
 }
 
 .hint {
   margin-top: 14px;
   font-size: 0.8rem;
-  color: #afafaf;
+  color: #A8907A;
   font-weight: 800;
   text-transform: uppercase;
   letter-spacing: 0.5px;
@@ -441,7 +441,7 @@ body {
 
 .transliteration {
   font-style: italic;
-  color: #afafaf;
+  color: #A8907A;
   margin-bottom: 10px;
   font-size: 1rem;
   font-weight: 700;
@@ -450,7 +450,7 @@ body {
 .meaning {
   font-size: 1.1rem;
   line-height: 1.6;
-  color: #3c3c3c;
+  color: #2C1810;
   font-weight: 800;
 }
 
@@ -484,16 +484,16 @@ button:disabled {
 
 /* Audio button */
 .audio-btn {
-  background: #ffffff;
-  color: #1cb0f6;
-  border: 2px solid #1cb0f6;
-  box-shadow: 0 4px 0 #0090d9;
+  background: #FAF8F4;
+  color: #C47A3A;
+  border: 2px solid #C47A3A;
+  box-shadow: 0 4px 0 #9A5C22;
   margin-bottom: 20px;
   width: 100%;
 }
 
 .audio-btn:hover:not(:disabled) {
-  background: #e8f7fe;
+  background: #FDF3E8;
 }
 
 /* Nav buttons */
@@ -505,26 +505,26 @@ button:disabled {
 
 #prev-btn {
   flex: 1;
-  background: #ffffff;
-  color: #afafaf;
-  border: 2px solid #e5e5e5;
-  box-shadow: 0 4px 0 #e5e5e5;
+  background: #FAF8F4;
+  color: #A8907A;
+  border: 2px solid #E8DDD2;
+  box-shadow: 0 4px 0 #E8DDD2;
 }
 
 #prev-btn:hover:not(:disabled) {
-  background: #f7f7f7;
+  background: #F4EBE2;
 }
 
 #next-btn {
   flex: 1;
-  background: #58cc02;
+  background: #D05228;
   color: #ffffff;
-  border: 2px solid #58a700;
-  box-shadow: 0 4px 0 #58a700;
+  border: 2px solid #A33E1C;
+  box-shadow: 0 4px 0 #A33E1C;
 }
 
 #next-btn:hover:not(:disabled) {
-  background: #61d900;
+  background: #D96030;
 }
 
 /* ============================================
@@ -536,9 +536,9 @@ button:disabled {
 }
 
 .mcq-card {
-  background: #ffffff;
-  border: 2px solid #e5e5e5;
-  box-shadow: 0 4px 0 #e5e5e5;
+  background: #FAF8F4;
+  border: 2px solid #E8DDD2;
+  box-shadow: 0 4px 0 #E8DDD2;
   border-radius: 16px;
   padding: 28px;
   width: 100%;
@@ -553,12 +553,12 @@ button:disabled {
 }
 
 .mcq-card .arabic {
-  color: #3c3c3c;
+  color: #2C1810;
   margin-bottom: 8px;
 }
 
 .mcq-card .transliteration {
-  color: #afafaf;
+  color: #A8907A;
   font-style: italic;
 }
 
@@ -580,11 +580,11 @@ button:disabled {
 }
 
 .feedback.correct {
-  color: #58cc02;
+  color: #D05228;
 }
 
 .feedback.wrong {
-  color: #ff4b4b;
+  color: #D05228;
 }
 
 /* MCQ options — 2x2 grid, Duolingo raised style */
@@ -596,10 +596,10 @@ button:disabled {
 }
 
 .mcq-option {
-  background: #ffffff;
-  color: #3c3c3c;
-  border: 2px solid #e5e5e5;
-  box-shadow: 0 4px 0 #e5e5e5;
+  background: #FAF8F4;
+  color: #2C1810;
+  border: 2px solid #E8DDD2;
+  box-shadow: 0 4px 0 #E8DDD2;
   padding: 16px 12px;
   border-radius: 12px;
   font-size: 0.95rem;
@@ -614,9 +614,9 @@ button:disabled {
 }
 
 .mcq-option:hover:not(:disabled) {
-  border-color: #84d8ff;
-  box-shadow: 0 4px 0 #84d8ff;
-  background: #f7f7f7;
+  border-color: #E8B48A;
+  box-shadow: 0 4px 0 #E8B48A;
+  background: #F4EBE2;
 }
 
 .mcq-option:active:not(:disabled) {
@@ -626,19 +626,19 @@ button:disabled {
 
 /* Correct answer */
 .mcq-option.correct {
-  background: #d7ffb8;
-  border-color: #58cc02;
-  box-shadow: 0 4px 0 #58a700;
-  color: #3c3c3c;
+  background: #EDF8DC;
+  border-color: #D05228;
+  box-shadow: 0 4px 0 #A33E1C;
+  color: #2C1810;
   animation: pulse 0.3s;
 }
 
 /* Wrong answer */
 .mcq-option.wrong {
-  background: #ffdfe0;
-  border-color: #ff4b4b;
-  box-shadow: 0 4px 0 #ea2b2b;
-  color: #3c3c3c;
+  background: #FDEEE8;
+  border-color: #D05228;
+  box-shadow: 0 4px 0 #A33E1C;
+  color: #2C1810;
   animation: shake 0.3s;
 }
 
