@@ -7,7 +7,7 @@
   Think of it as a "proxy" between your app and the internet.
 */
 
-const CACHE_NAME = 'quran-flashcards-v5';
+const CACHE_NAME = 'quran-flashcards-v6';
 
 // Files to cache for offline use
 const FILES_TO_CACHE = [
@@ -16,7 +16,8 @@ const FILES_TO_CACHE = [
   '/style.css',
   '/app.js',
   '/data/surahs.json',
-  '/manifest.json'
+  '/manifest.json',
+  '/favicon.svg'
 ];
 
 /*
