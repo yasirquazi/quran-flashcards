@@ -707,3 +707,108 @@ button:disabled {
   25% { transform: translateX(-6px); }
   75% { transform: translateX(6px); }
 }
+
+/* ── Search Bar ─────────────────────────────────────────────────── */
+
+.search-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.search-icon {
+  position: absolute;
+  left: 14px;
+  font-size: 1rem;
+  pointer-events: none;
+  opacity: 0.5;
+}
+
+.search-input {
+  width: 100%;
+  padding: 10px 40px 10px 40px;
+  font-family: 'Nunito', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #2C1810;
+  background: #FAF8F4;
+  border: 2px solid #E8DDD2;
+  border-radius: 14px;
+  outline: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  box-sizing: border-box;
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+.search-input::placeholder {
+  color: #A8907A;
+  font-weight: 700;
+}
+
+.search-input:focus {
+  border-color: #D05228;
+  box-shadow: 0 0 0 3px rgba(208, 82, 40, 0.12);
+}
+
+.search-input::-webkit-search-cancel-button,
+.search-input::-webkit-search-decoration {
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+.search-clear {
+  position: absolute;
+  right: 12px;
+  background: none;
+  border: none;
+  font-size: 1.2rem;
+  color: #A8907A;
+  cursor: pointer;
+  padding: 0 4px;
+  line-height: 1;
+  box-shadow: none;
+  transition: color 0.15s ease;
+}
+
+.search-clear:hover {
+  color: #D05228;
+}
+
+.search-clear:active:not(:disabled) {
+  transform: none;
+  box-shadow: none !important;
+}
+
+/* ── Tab hide/show transition for search mode ───────────────────── */
+
+.home-tabs {
+  overflow: hidden;
+  max-height: 60px;
+  opacity: 1;
+  transition: max-height 0.25s ease, opacity 0.2s ease, margin 0.25s ease;
+  margin-bottom: 20px;
+}
+
+.home-tabs.hidden-for-search {
+  max-height: 0;
+  opacity: 0;
+  pointer-events: none;
+  margin-bottom: 0;
+}
+
+/* ── Empty state ────────────────────────────────────────────────── */
+
+.search-empty-state {
+  text-align: center;
+  padding: 48px 24px;
+  color: #A8907A;
+  font-family: 'Nunito', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 700;
+}
+
+.search-empty-state strong {
+  color: #2C1810;
+}

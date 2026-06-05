@@ -20,6 +20,20 @@
     </header>
     <main class="home-main">
       <h2 class="home-subtitle">Pick any Surah to learn</h2>
+      <div class="search-container">
+        <span class="search-icon">🔍</span>
+        <input
+          type="search"
+          id="search-input"
+          class="search-input"
+          placeholder="Search by name or number…"
+          autocomplete="off"
+          autocorrect="off"
+          spellcheck="false"
+        />
+        <button class="search-clear" id="search-clear" aria-label="Clear search" hidden>×</button>
+      </div>
+
       <div class="home-tabs">
         <button class="home-tab-btn active" data-filter="all">All</button>
         <button class="home-tab-btn" data-filter="short">Small</button>

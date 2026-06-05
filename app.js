@@ -23,6 +23,7 @@ let isMcqMode = false;      // Track which mode we're in
 let mcqAnswered = false;    // Whether the current MCQ word has been answered
 let isMuted = false;        // Whether autoplay is muted
 let activeHomeTab = 'all';  // Active home filter tab: 'all' | 'short' | 'long'
+let searchQuery = '';       // Current search string; empty string means no active search
 
 // ============================================
 // DOM ELEMENTS - getting references to HTML
@@ -149,6 +150,44 @@ function showResumeToast(ayahIndex, totalAyahs) {
 
 // ─── END PROGRESS PERSISTENCE ──────────────────────────────────────────────
 
+function filterAndRenderSurahs() {
+  const query = searchQuery.trim().toLowerCase();
+  const tabsEl = document.querySelector('.home-tabs');
+
+  if (query) {
+    if (tabsEl) tabsEl.classList.add('hidden-for-search');
+
+    const results = allSurahsData.filter(s =>
+      s.nameEnglish.toLowerCase().includes(query) ||
+      s.nameMeaning.toLowerCase().includes(query) ||
+      String(s.number) === searchQuery.trim()
+    );
+
+    if (results.length === 0) {
+      const listEl = document.getElementById('surah-list');
+      if (listEl) {
+        listEl.innerHTML = `
+          <div class="search-empty-state">
+            <p>No surahs found for "<strong>${escapeHtml(searchQuery.trim())}</strong>"</p>
+          </div>`;
+      }
+    } else {
+      renderSurahList(results);
+    }
+  } else {
+    if (tabsEl) tabsEl.classList.remove('hidden-for-search');
+    renderSurahList(getFilteredSurahs());
+  }
+}
+
+function escapeHtml(str) {
+  return str
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;');
+}
+
 /*
   INITIALIZATION: Load all surah data and show home page.
   'async' means this function can wait for things (like file loading).
@@ -162,6 +201,37 @@ async function init() {
   document.querySelectorAll('.home-tab-btn').forEach(btn => {
     btn.addEventListener('click', () => setHomeTab(btn.dataset.filter));
   });
+
+  // ── Search bar wiring ──────────────────────────────────────────
+  const searchInput = document.getElementById('search-input');
+  const searchClear = document.getElementById('search-clear');
+  let searchDebounceTimer = null;
+
+  searchInput.addEventListener('input', () => {
+    searchQuery = searchInput.value;
+    searchClear.hidden = searchQuery.length === 0;
+    clearTimeout(searchDebounceTimer);
+    searchDebounceTimer = setTimeout(filterAndRenderSurahs, 150);
+  });
+
+  searchInput.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+      searchQuery = '';
+      searchInput.value = '';
+      searchInput.blur();
+      searchClear.hidden = true;
+      filterAndRenderSurahs();
+    }
+  });
+
+  searchClear.addEventListener('click', () => {
+    searchQuery = '';
+    searchInput.value = '';
+    searchInput.focus();
+    searchClear.hidden = true;
+    filterAndRenderSurahs();
+  });
+  // ── End search bar wiring ──────────────────────────────────────
 
   loadPrefs();
   renderSurahList(getFilteredSurahs());
@@ -183,7 +253,7 @@ function setHomeTab(tab) {
   document.querySelectorAll('.home-tab-btn').forEach(btn => {
     btn.classList.toggle('active', btn.dataset.filter === tab);
   });
-  renderSurahList(getFilteredSurahs());
+  filterAndRenderSurahs();
 }
 
 /*
@@ -310,8 +380,15 @@ function goHome() {
   document.getElementById('study-view').classList.add('hidden');
   document.getElementById('home-view').classList.remove('hidden');
 
+  // Clear any active search so the home screen is clean on return
+  searchQuery = '';
+  const searchInput = document.getElementById('search-input');
+  const searchClear = document.getElementById('search-clear');
+  if (searchInput) searchInput.value = '';
+  if (searchClear) searchClear.hidden = true;
+
   // Re-render so progress badges reflect the session just completed
-  renderSurahList(getFilteredSurahs());
+  filterAndRenderSurahs();
 }
 
 /*
