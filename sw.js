@@ -7,7 +7,7 @@
   Think of it as a "proxy" between your app and the internet.
 */
 
-const CACHE_NAME = 'quran-flashcards-v7';
+const CACHE_NAME = 'quran-flashcards-v8';
 
 // Files to cache for offline use
 const FILES_TO_CACHE = [
@@ -32,6 +32,8 @@ self.addEventListener('install', (event) => {
         return cache.addAll(FILES_TO_CACHE);
       })
   );
+  // Take over immediately — don't wait for old SW tabs to close
+  self.skipWaiting();
 });
 
 /*
@@ -63,4 +65,6 @@ self.addEventListener('activate', (event) => {
       }));
     })
   );
+  // Immediately control all open tabs so they get the new files
+  self.clients.claim();
 });

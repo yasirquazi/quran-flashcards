@@ -300,6 +300,8 @@ function selectSurah(surahNumber) {
   Returns user to the home page and stops any audio.
 */
 function goHome() {
+  saveProgress();
+
   if (audio) {
     audio.pause();
     audio = null;
@@ -307,6 +309,9 @@ function goHome() {
 
   document.getElementById('study-view').classList.add('hidden');
   document.getElementById('home-view').classList.remove('hidden');
+
+  // Re-render so progress badges reflect the session just completed
+  renderSurahList(getFilteredSurahs());
 }
 
 /*
