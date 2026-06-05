@@ -121,6 +121,7 @@ body {
 }
 
 .surah-card {
+  position: relative;
   display: flex;
   align-items: center;
   gap: 16px;
@@ -132,6 +133,20 @@ body {
   cursor: pointer;
   transition: all 0.15s;
   -webkit-tap-highlight-color: transparent;
+}
+
+.progress-badge {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  background: #D05228;
+  color: #FAF8F4;
+  font-family: 'Nunito', sans-serif;
+  font-size: 0.65rem;
+  font-weight: 900;
+  padding: 2px 7px;
+  border-radius: 10px;
+  line-height: 1.4;
 }
 
 .surah-card:hover:not(.locked) {
@@ -202,6 +217,33 @@ body {
 /* ============================================
    STUDY TOPBAR
 ============================================ */
+
+#study-view {
+  position: relative;
+}
+
+.resume-toast {
+  position: absolute;
+  top: 64px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #2C1810;
+  color: #FAF8F4;
+  font-family: 'Nunito', sans-serif;
+  font-size: 0.8rem;
+  font-weight: 700;
+  padding: 6px 16px;
+  border-radius: 20px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+  z-index: 100;
+  white-space: nowrap;
+}
+
+.resume-toast.visible {
+  opacity: 1;
+}
 
 .study-topbar {
   display: flex;

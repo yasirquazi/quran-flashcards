@@ -61,6 +61,94 @@ const muteBtn = document.getElementById('mute-btn');
 // FUNCTIONS - reusable blocks of code
 // ============================================
 
+// ─── PROGRESS PERSISTENCE ──────────────────────────────────────────────────
+
+function saveProgress() {
+  if (!surahData) return;
+  const key = `qfc_progress_${surahData.number}`;
+  const data = {
+    surahNumber:   surahData.number,
+    ayahIndex:     currentAyahIndex,
+    wordIndex:     currentWordIndex,
+    mode:          isMcqMode ? 'mcq' : 'flashcard',
+    completedOnce: JSON.parse(localStorage.getItem(key) || '{}').completedOnce || false,
+    lastStudied:   new Date().toISOString()
+  };
+  try {
+    localStorage.setItem(key, JSON.stringify(data));
+  } catch (e) {
+    console.warn('Progress save failed:', e);
+  }
+}
+
+function loadProgress(surahNumber) {
+  try {
+    const raw = localStorage.getItem(`qfc_progress_${surahNumber}`);
+    return raw ? JSON.parse(raw) : null;
+  } catch (e) {
+    return null;
+  }
+}
+
+function markRestartedAndClear(surahNumber) {
+  try {
+    const key = `qfc_progress_${surahNumber}`;
+    const existing = JSON.parse(localStorage.getItem(key) || '{}');
+    localStorage.setItem(key, JSON.stringify({
+      surahNumber,
+      ayahIndex:     0,
+      wordIndex:     0,
+      mode:          existing.mode || 'flashcard',
+      completedOnce: true,
+      lastStudied:   new Date().toISOString()
+    }));
+  } catch (e) {
+    console.warn('markRestartedAndClear failed:', e);
+  }
+}
+
+function savePrefs() {
+  try {
+    localStorage.setItem('qfc_prefs', JSON.stringify({ isMuted }));
+  } catch (e) {
+    console.warn('Prefs save failed:', e);
+  }
+}
+
+function loadPrefs() {
+  try {
+    const raw = localStorage.getItem('qfc_prefs');
+    if (!raw) return;
+    const prefs = JSON.parse(raw);
+    if (typeof prefs.isMuted === 'boolean') {
+      isMuted = prefs.isMuted;
+      const btn = document.getElementById('mute-btn');
+      if (btn) {
+        btn.textContent = isMuted ? '🔇' : '🔊';
+        btn.classList.toggle('muted', isMuted);
+      }
+    }
+  } catch (e) {
+    console.warn('Prefs load failed:', e);
+  }
+}
+
+function showResumeToast(ayahIndex, totalAyahs) {
+  const toast = document.getElementById('resume-toast');
+  const numSpan = document.getElementById('resume-ayah-num');
+  if (!toast || !numSpan) return;
+  numSpan.textContent = `${ayahIndex + 1}/${totalAyahs}`;
+  toast.classList.remove('hidden');
+  void toast.offsetWidth; // force reflow so transition fires
+  toast.classList.add('visible');
+  setTimeout(() => {
+    toast.classList.remove('visible');
+    setTimeout(() => toast.classList.add('hidden'), 300);
+  }, 2200);
+}
+
+// ─── END PROGRESS PERSISTENCE ──────────────────────────────────────────────
+
 /*
   INITIALIZATION: Load all surah data and show home page.
   'async' means this function can wait for things (like file loading).
@@ -75,6 +163,7 @@ async function init() {
     btn.addEventListener('click', () => setHomeTab(btn.dataset.filter));
   });
 
+  loadPrefs();
   renderSurahList(getFilteredSurahs());
 }
 
@@ -121,6 +210,19 @@ function renderSurahList(surahs) {
     `;
 
     if (surah.hasData) {
+      const savedProgress = loadProgress(surah.number);
+      if (savedProgress) {
+        const pct = Math.round((savedProgress.ayahIndex / surah.totalAyahs) * 100);
+        if (pct > 0 || savedProgress.completedOnce) {
+          const badge = document.createElement('div');
+          badge.className = 'progress-badge';
+          badge.textContent = savedProgress.completedOnce ? '✓' : `${pct}%`;
+          badge.title = savedProgress.completedOnce
+            ? 'Completed at least once'
+            : `${savedProgress.ayahIndex} of ${surah.totalAyahs} ayahs`;
+          card.appendChild(badge);
+        }
+      }
       card.addEventListener('click', () => selectSurah(surah.number));
     } else {
       // Brief yellow flash to indicate "coming soon"
@@ -170,6 +272,25 @@ function selectSurah(surahNumber) {
   document.getElementById('home-view').classList.add('hidden');
   document.getElementById('study-view').classList.remove('hidden');
   window.scrollTo(0, 0);
+
+  // Restore saved progress if it exists
+  const saved = loadProgress(surahNumber);
+  if (saved) {
+    currentAyahIndex = saved.ayahIndex;
+    currentWordIndex = saved.wordIndex;
+    if (saved.mode === 'mcq') {
+      isMcqMode = true;
+      tabFlashcard.classList.remove('active');
+      tabMcq.classList.add('active');
+      flashcardView.classList.add('hidden');
+      mcqView.classList.remove('hidden');
+      mcqAnswers.classList.remove('hidden');
+      playAudioBtn.classList.add('hidden');
+    }
+    if (saved.ayahIndex > 0 || saved.wordIndex > 0) {
+      showResumeToast(saved.ayahIndex, surahData.ayahs.length);
+    }
+  }
 
   displayCurrentContent();
 }
@@ -413,6 +534,7 @@ function goNext() {
       displayCurrentContent();
     } else {
       // Last word of last ayah — restart
+      markRestartedAndClear(surahData.number);
       currentAyahIndex = 0;
       currentWordIndex = 0;
       displayCurrentContent();
@@ -422,10 +544,12 @@ function goNext() {
     if (currentAyahIndex < surahData.ayahs.length - 1) {
       currentAyahIndex++;
     } else {
+      markRestartedAndClear(surahData.number);
       currentAyahIndex = 0;
     }
     displayCurrentContent();
   }
+  saveProgress();
 }
 
 /*
@@ -450,6 +574,7 @@ function goPrev() {
       displayCurrentContent();
     }
   }
+  saveProgress();
 }
 
 /*
@@ -489,6 +614,7 @@ function switchMode(newIsMcq) {
   }
 
   displayCurrentContent(false); // Don't autoplay when switching modes
+  saveProgress();
 }
 
 /*
@@ -545,6 +671,7 @@ muteBtn.addEventListener('click', () => {
   isMuted = !isMuted;
   muteBtn.textContent = isMuted ? '🔇' : '🔊';
   muteBtn.classList.toggle('muted', isMuted);
+  savePrefs();
   if (isMuted && audio) audio.pause(); // Stop current autoplay if muting
 });
 
